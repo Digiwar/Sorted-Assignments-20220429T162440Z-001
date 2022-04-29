@@ -1,0 +1,12 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/ffr.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ffr
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/mux2to1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mux2to1
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/mux4to1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mux4to1
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/silvaa/Desktop/Lab 4/tb/datapath_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath_tb

@@ -1,0 +1,145 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Mar 28 14:15:54 2018
+# Process ID: 24676
+# Current directory: C:/Users/leexu/Desktop/Lab02 Part2/multi_tb
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11044 C:\Users\leexu\Desktop\Lab02 Part2\multi_tb\multi_tb.xpr
+# Log file: C:/Users/leexu/Desktop/Lab02 Part2/multi_tb/vivado.log
+# Journal file: C:/Users/leexu/Desktop/Lab02 Part2/multi_tb\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/leexu/Desktop/Lab02 Part2/multi_tb/multi_tb.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+source multi_tb.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source multi_tb.tcl
+add_bp {C:/Users/leexu/Desktop/Lab02 Part2/multi_tb/multi_tb.srcs/sources_1/new/multi_tb.v} 46
+remove_bps -file {C:/Users/leexu/Desktop/Lab02 Part2/multi_tb/multi_tb.srcs/sources_1/new/multi_tb.v} -line 46
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+close_sim
+launch_simulation
+source multi_tb.tcl
+save_project_as {Project 2 2.0} {C:/Users/leexu/Desktop/Lab02 Part2/Project 2 2.0} -force

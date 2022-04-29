@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvareze/Desktop/l3p4attempt2/l3p4attempt2.srcs/sources_1/imports/Desktop/fsm.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity fsm
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/alvareze/Desktop/l3p4attempt2/l3p4attempt2.srcs/sim_1/imports/Desktop/fsm_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity fsm_tb

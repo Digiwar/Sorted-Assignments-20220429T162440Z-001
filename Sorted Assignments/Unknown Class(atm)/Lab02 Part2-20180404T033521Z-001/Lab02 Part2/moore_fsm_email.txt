@@ -1,0 +1,44 @@
+﻿module moore_fsm(reset, a, clk, y);
+input    reset, a, clk;
+output   y;
+reg      y;
+
+
+// Binary State Enconding
+parameter  s0 = 1'b0, s1 = 1'b1;
+
+
+reg      cs, ns;
+
+
+// sequential state register block
+always@(posedge reset or posedge clk)
+begin
+    if( reset )  cs <= s0;
+    else         cs <= ns;  
+end
+
+
+// combinational next state block
+always@(cs or a)
+begin
+    case(cs)    
+    s0:   if(a) ns = s1;
+          else  ns = s0;
+    s1:   if(a) ns = s1;
+          else  ns = s0;
+    default:  ns = s0;
+    endcase
+end
+
+
+
+
+always@(cs)
+begin
+    case(cs)    
+    s0:   y = 0;
+    s1:   y = 1;
+    default:  y = 0;
+    endcase
+end

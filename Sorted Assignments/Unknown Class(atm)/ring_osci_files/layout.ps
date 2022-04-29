@@ -1,0 +1,3888 @@
+%!PS-Adobe-3.0
+%%DocumentFonts: Helvetica Times-Roman Courier
+%%Creator: Cadence Design Systems
+%%EndComments
+%%BeginProlog
+%
+% Start of Cadence ps.prologue -- Version 5.3.1
+% Adobe Postscript Level 2 Color Version.
+/setpacking where
+{
+	/currpack currentpacking def
+	pop true setpacking
+} if
+%******************************************************************************
+% Graphics initialization routine.
+%
+/gis  {
+  0 setgray
+  save
+  mark
+  newpath
+
+%
+% Scale postscripts 72 dpi divided by the plotter resolution set in pap.
+%
+  72 resolution div
+  dup
+  scale
+
+%
+% Move the origin of the plot up and to the right so the plotters margin
+% is observed.
+%
+  offsetX offsetY translate
+
+  /stippleArray 10 array def
+    stippleArray
+     dup    0  <FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF> put
+     dup    1  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    2  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    3  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    4  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    5  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    6  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    7  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    8  <08080404020201018080404020201010
+		08080404020201018080404020201010> put
+            9  <08081414222241418080414122221414
+                08081414222241418080414122221414> put
+
+  /newFont 10 dict def
+  newFont begin
+
+    /FontType 3 def
+    /FontMatrix [1 0 0 1 0 0] def
+    /FontBBox [0 0 1 1] def
+
+    /Encoding 256 array def
+    0 1 255 {Encoding exch /.notdef put} for
+    Encoding
+      dup 48 /0  put
+      dup 49 /1  put
+      dup 50 /2  put
+      dup 51 /3  put
+      dup 52 /4  put
+      dup 53 /5  put
+      dup 54 /6  put
+      dup 55 /7  put
+      dup 56 /8  put
+          57 /9  put
+
+
+    /BuildChar {
+        /char exch def
+        /fontdict exch def
+        /charname fontdict /Encoding get char get def
+
+         1 0 setcharwidth
+
+          16 16 true
+          [16 0 0 -16 -.5 15.50]
+           stippleArray char 48 sub 1 getinterval cvx
+          imagemask
+    } def
+
+  end
+  /StippleFont newFont definefont 66 scalefont setfont
+  /fillChar 0 def
+
+  /ellipsedict 8 dict def
+  ellipsedict /mtrx matrix put
+
+  /xformdict 8 dict def
+  xformdict /xformmtrx matrix put
+
+  /color     0 def
+
+  /lineRed   0 def
+  /lineGreen 0 def
+  /lineBlue  0 def
+
+  /fillRed   0 def
+  /fillGreen 0 def
+  /fillBlue  0 def
+
+  /hatchSet  0 def
+
+  /rht 0 def
+  /rw 0 def
+  /ils 1.0 def
+  /textalign 1 def
+
+} bind def
+
+%******************************************************************************
+% Paper call.  Sets resolution page height and page width.
+%
+/pap {
+    /resolution exch def
+    /pageHeight exch def
+    /pageWidth exch def
+    /offsetY exch def
+    /offsetX exch def
+
+  } bind def
+
+%******************************************************************************
+% Plot is done.
+%
+/gfs  {
+    showpage
+    cleartomark
+    restore
+  } bind def
+
+%******************************************************************************
+% Next Page sequence.
+%
+/nxp  {
+
+    showpage
+    newpath
+
+%
+% Scale postscripts 72 dpi divided by the plotter resolution set in pap.
+%
+    72 resolution div
+    dup
+    scale
+%
+% Move the origin of the plot up and to the right so the plotters margin
+% is observed.
+%
+    offsetX offsetY translate
+    /ils 1.0 def
+    /textalign 1 def
+  } bind def
+
+%******************************************************************************
+% Rotate Plot Sequence.
+%
+/rotp  {
+  pageWidth 0  translate  %% This moves lower left of plot to
+                          %% lower right of page.
+
+  90 rotate    %% rotate plot 90 degs.
+} bind def
+%******************************************************************************
+% Clipping Window
+%
+/clwin  {
+    initclip
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 moveto
+    x2 y1 lineto
+    x2 y2 lineto
+    x1 y2 lineto
+    closepath
+    clip
+} bind def
+%******************************************************************************
+% These to routines keep track of the bounding box of the shape.
+% This information is used when filling the drawn shape.
+%
+/bblineto {
+  dup dup
+  /cury exch def
+  miny lt {/miny exch def}
+    {dup maxy gt { /maxy exch def }
+           {pop } ifelse } ifelse
+  dup dup
+  minx lt {/minx exch def}
+    {dup maxx gt { /maxx exch def }
+           { pop } ifelse } ifelse
+  cury lineto
+} bind def
+
+/bbmoveto {
+  dup dup
+  /miny exch def /maxy exch def /cury exch def
+  dup dup
+  /minx exch def /maxx exch def
+  cury moveto
+} bind def
+%******************************************************************************
+% Internal ellipical arc routine.
+%    x y xradius yradius startangle endangle ellipse
+%
+/ellipse
+  {
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+
+    startangle endangle gt {
+      save
+      /tmpangle startangle def
+      /startangle endangle def
+      /endangle tmpangle def
+      restore
+    } if
+
+    ellipsedict begin
+      /savematrix mtrx currentmatrix def
+      x y translate
+      xrad yrad scale
+      0 0 1 startangle endangle arc
+      savematrix setmatrix
+    end
+  } bind def
+%******************************************************************************
+% Resident Font Scale Sequence
+%    x y rfss
+%
+/rfss  {
+    4 2 roll
+    dup
+    3 div
+    add
+    scalefont
+    setfont
+    0 color ne {setLineColor}
+               { 0 setgray } ifelse
+  } bind def
+%******************************************************************************
+% Resident Font End
+%
+%
+/rfe
+{
+/width exch def
+5 1 roll
+moveto
+
+xformdict begin
+/savematrix xformmtrx currentmatrix def
+
+exch 				% rotate mirror to mirror rotate
+matrix rotate concat		% add rotation to current transform matrix
+dup 1 eq
+	{pop 1 -1}		% X mirror
+
+	{2 eq
+		{-1 1}		% Y mirror
+		{1 1}		% No mirror
+	ifelse}
+ifelse matrix scale concat	% add mirror to current transform matrix
+
+
+dup				% duplicate (string)
+length				% replace one of the strings with its length
+dup 0 ne
+{
+	3 -1 roll		% move fixed width flag to top of stack
+	0 eq
+	{			% if flag is false (0) do old string handling
+		/numChr exch def
+		dup stringwidth	%stack  wy,wx,(string)
+		pop
+		width
+		exch sub	%stack  xdiff,ydiff,(string)
+
+		cvi
+		numChr idiv	%stack  xspace,ydiff,(string)
+
+		/xoff exch def
+
+		{		% this is the positioning  function for kshow
+			pop pop
+			xoff
+			0
+			rmoveto
+		}
+
+		exch
+		kshow
+	}
+
+	{			% if flag is true (not 0) just show string
+		pop show
+	}
+	ifelse
+}
+
+{
+	pop pop pop
+}
+ifelse
+      savematrix setmatrix
+    end
+  } bind def
+%******************************************************************************
+% Resident Font Text Alignment
+%
+/rfta {						% <align> rfta
+	/textalign exch def
+} bind def
+%******************************************************************************
+% Resident Font Interline Space
+%
+/rfis {						% <space> rfis
+	/ils exch def
+} bind def
+%******************************************************************************
+% Resident Font Scale
+%
+/rfsc {						% <ht> <rotate> <mirror> rfs
+% What I need to do here is to validate <ht>.  <ht> can not be 0.  If it is 0
+% then make it 1.  To do this I will need to use the roll operation and exch
+% and maybe dup.  The algorithm looks like this:
+% Roll stack to make it look like : <rotate> <mirror> <ht>
+% duplicate <ht> so I can test it.
+% If <ht> is equal to 0 then
+% exchange 1 for <ht>
+% In any case roll stack to make it look like: <ht> <rotate> <mirror>
+% qed.
+%
+	3 -1 roll		% <rotate> <mirror> <ht>
+	dup 0 eq
+	{
+		1 exch pop	% <rotate> <mirror> <ht=1>
+	}
+	if
+	3 1 roll		% <ht> <rotate> <mirror>
+
+	0 color ne
+	{
+		setLineColor
+	}
+	{
+		0 setgray
+	}
+	ifelse
+
+	/tasz 60 def
+	/taln 59 def
+
+	/ta tasz array def
+	/cta ta def
+	/tc 0 def
+	/sa tasz array def
+	/sc 0 def
+} bind def
+%******************************************************************************
+% Resident Font Restricted Text
+%
+/rfrt {						% <height> <width> rfrt
+	/rht exch def
+	/rw exch def
+	% Since restricting one dimension and not the other is not supported
+	% if one dimension is turned off then ensure that both dimensions
+	% are turned off (a value of 0 means no restriction)
+	rht 0 eq rw 0 eq or
+	{
+		/rht 0 def
+		/rw 0 def
+	}
+	if
+} bind def
+%******************************************************************************
+% Resident Font Text Score
+%
+/rfts {						% <score> <start> <end> rfts
+	sc tasz lt
+	{
+		3 -1 roll 3 array astore
+		sa sc 3 -1 roll put
+		/sc sc 1 add def
+	}
+	{
+		pop pop pop
+	} ifelse
+} bind def
+%******************************************************************************
+% Resident Font Text
+%
+/rft {						% (text) rft
+	tc taln gt tc tasz mod 0 eq and
+	{
+		cta /cta tasz array dup def put
+	} if
+
+	tc tasz mod exch cta 3 1 roll sc
+	sa dup length array copy
+	3 array astore put
+
+	/sc 0 def
+	/tc tc 1 add def
+} bind def
+%******************************************************************************
+% Resident Font Complete
+%
+/rfc {						% <x> <y> rfc
+	/cta ta def
+
+	%
+	% If text is restricted or if text alignment is not left, find the
+	% longest text string
+	%
+	/mw 0 def
+	rw 0 ne textalign 3 gt or
+	{
+		%
+		% Find the widest text string
+		%
+		5 index		% <fn> <ht> <rot> <mir> <x> <y> <fn>
+		setfont
+		0 1 tc 1 sub
+		{
+			dup taln gt 1 index tasz mod 0 eq and
+			{
+				/cta cta tasz get def
+			}
+			if
+
+			tasz mod cta exch get 0 get
+			stringwidth pop dup mw gt
+			{
+				/mw exch def null
+			}
+			if
+
+			pop
+		}
+		for
+
+		/cta ta def
+	}
+	if
+
+	%
+	% Operand stack:		<fn> <ht> <rot> <mir> <x> <y>
+	% Check for restricted text
+	%
+	rw 0 ne
+	{
+
+		%
+		% Compute font scale factors
+		%
+		6 -2 roll pop		% <rot> <mir> <x> <y> <fn>
+		rw mw div
+		rht tc div dup ils mul 0.5 add cvi /tht exch def
+		matrix scale makefont	% <rot> <mir> <x> <y> <fn>
+		/mw rw def
+	}
+	{
+		6 -2 roll		% <rot> <mir> <x> <y> <fn> <ht>
+		dup 0 eq		% Test if height is 0
+		{			% change to 1 if it is
+                	1 exch pop	% <rot> <mir> <x> <y> <fn> <1>
+		}
+		if
+		dup ils mul 0.5 add cvi /tht exch def
+		dup mw mul /mw exch def scalefont
+	}
+	ifelse
+
+	setfont				% <rot> <mir> <x> <y>
+
+	moveto			% <rot> <mir>
+
+	xformdict begin
+		/savematrix xformmtrx currentmatrix def
+
+		exch matrix rotate concat
+		dup 1 eq
+		{
+			pop 1.0 -1.0		% x mirror
+		}
+		{
+			2 eq
+			{
+				-1.0 1.0	% y mirror
+			}
+			{
+				1.0 1.0		% no mirror
+			}
+			ifelse
+		}
+		ifelse
+		matrix scale concat
+
+		currentpoint
+
+		%
+		% Adjust origin for text alignment. For lc (4), cc (5), and uc
+		% (6) move left by width / 2. For lr (7), cr (8), and ur (9)
+		% move left by width. For cl (2), cc (5), and cr (8) move down
+		% by height / 2. For ul (3), uc (6), and ur (9) move down by
+		% height.
+		%
+		textalign 2 eq textalign 5 eq or textalign 8 eq or
+		{
+			tht tc mul 2 div sub
+		} if
+		textalign 3 eq textalign 6 eq or textalign 9 eq or
+		{
+			tht tc mul sub
+		} if
+		/oy exch def
+
+		textalign 3 gt textalign 7 lt and
+		{
+			mw 2 div sub
+		} if
+		textalign 6 gt textalign 10 lt and
+		{
+			mw sub
+		} if
+		/ox exch def
+
+		0 1 tc 1 sub
+		{
+			dup taln gt 1 index tasz mod 0 eq and
+			{
+				/cta cta tasz get def
+			}
+			if
+
+			cta exch tasz mod get aload pop
+			dup 3 -1 roll	% (str) [score] [score] <cnt>
+			0 1 3 -1 roll 1 sub	% (str) [score] [score] 0 1 <cnt>
+			{
+				newpath ox oy moveto
+				get aload pop pop exch	% ... <len> <start>
+				dup 0 exch		% ... <len> <start> 0 <s
+				5 index 3 1 roll	% ... (str) 0 <start>
+				getinterval		% ... <len> <start> (.)
+				stringwidth pop tht rmoveto
+				3 index			% ... <len> <start> (str)
+				3 1 roll exch		% ... (str) <start> <len>
+%				dup 3 1 roll
+%				sub
+				getinterval stringwidth pop
+				0 rlineto stroke
+				dup
+			}
+			for
+			pop pop
+			ox oy moveto
+			show
+
+			%
+			% Move origin for next line
+			%
+			/oy oy tht sub def
+		}
+		for
+
+		savematrix setmatrix
+	end
+	pop					% throw away the "0"
+} bind def
+%******************************************************************************
+% Draw line sequence.
+%
+/dls  {
+  newpath
+  moveto
+  rlineto
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  stroke
+  grestore
+} bind def
+%******************************************************************************
+% Draw line to.
+%
+/dlt  {
+  newpath
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  moveto
+} bind def
+%******************************************************************************
+%
+/dslt  {
+  newpath
+  gsave
+  0 color ne { setLineColor }
+             { 0 setgray } ifelse
+  moveto
+} bind def
+%******************************************************************************
+%
+/dlv  {
+  rlineto
+} bind def
+%******************************************************************************
+%
+/dle  {
+  stroke
+  grestore
+} bind def
+%******************************************************************************
+% Move to.
+/mps {
+  newpath
+  moveto
+} bind def
+%******************************************************************************
+%
+% Draw Box Unfilled
+%    x1 y1 x2 y2 dbu
+%
+/dbu  {
+    0 color ne { setLineColor } if
+    newpath
+    moveto
+    dup 0 rlineto
+    0 3 -1 roll
+    rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  } bind def
+%******************************************************************************
+%
+% Draw Box Filled
+%    x1 y1 x2 y2 dbf
+%
+/dbf  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 bbmoveto
+    x2 y1 bblineto
+    x2 y2 bblineto
+    x1 y2 bblineto
+    closepath
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath grestore
+  } bind def
+%******************************************************************************
+% Draw Box Solid
+%    x1 y1 x2 y2 dsb
+%
+/dbs  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    newpath
+    x1 y1 moveto
+    x2 y1 lineto
+    x2 y2 lineto
+    x1 y2 lineto
+    closepath
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne { setLineColor } if stroke
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Begin
+%    x y dpb
+%
+/dpb  {
+    newpath bbmoveto
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Unfilled
+%    x y dpu
+%
+/dpu  {
+      closepath
+      gsave
+      0 color ne { setLineColor } if
+      stroke
+      grestore
+   } bind def
+
+%******************************************************************************
+% Draw Polygon Filled
+%    x y dpf
+%
+/dpf  {
+    closepath
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath grestore
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Solid
+%    x y dps
+%
+/dps  {
+    closepath
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne { setLineColor } if stroke
+  } bind def
+
+%******************************************************************************
+% Draw Polygon Vertex
+%    x y dpv
+%
+/dpv  {
+    bblineto
+  } bind def
+
+%******************************************************************************
+% Draw Circle Unfilled
+%    x y radius dcu
+%
+/dcu  {
+    /radius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setLineColor } if
+    stroke
+    grestore
+  } bind def
+%******************************************************************************
+% Draw Circle Filled
+%    x y radius dcs
+%
+/dcf  {
+    /radius exch def
+    /y exch def
+    /x exch def
+    /minx x radius sub def
+    /miny y radius sub def
+    /maxx x radius add def
+    /maxy y radius add def
+
+    newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath
+    grestore
+  } bind def
+
+%******************************************************************************
+% Draw Circle Solid
+%    x y radius dcs
+%
+/dcs  {
+    /radius exch def
+    /y exch def
+    /x exch def
+
+          newpath
+    x y radius radius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+    fill grestore
+    0 color ne {setLineColor} if stroke
+  } bind def
+%******************************************************************************
+% Draw Ellipse Unfilled
+%    x y xradius yradius deu
+%
+/delu  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setLineColor } if
+    stroke
+    grestore
+  } bind def
+%******************************************************************************
+% Draw Ellipse Filled
+%    x y xradius yradius def
+%
+/delf  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+    /minx x xradius sub def
+    /miny y yradius sub def
+    /maxx x xradius add def
+    /maxy y yradius add def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor } if
+    clip fillpath
+    grestore
+  } bind def
+
+%******************************************************************************
+% Draw Ellipse Solid
+%    x y xradius yradius des
+%
+/dels  {
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+
+    newpath
+    x y xradius yradius 0 360 ellipse
+    gsave
+    0 color ne { setFillColor }
+               { 0 setgray } ifelse
+
+    fill grestore
+    0 color ne {setLineColor} if stroke
+  } bind def
+%******************************************************************************
+% Draw Arc Unfilled
+%    x y xradius yradius startangle endangle das
+%
+/dau  { newpath ellipse
+        gsave
+        0 color ne { setLineColor } if
+        stroke
+        grestore
+      } bind def
+%******************************************************************************
+% Line Define Code.
+%
+/setlinedash {
+    1 index length 11 gt
+    {exch dup length 11 sub 11 getinterval exch } if
+    setdash
+  } bind def
+
+/lpb    {
+    pop
+    [
+    /offset 0 def
+    /offcount 0 def
+    /oncount 0 def
+  } bind def
+
+/lpon  {
+    /oncount exch def
+    pop
+    oncount
+  } bind def
+
+/lpoff  {
+    /offcount exch def
+    pop
+    oncount 0 eq
+    {/offset offcount def }
+    { offcount } ifelse
+  } bind def
+
+/lpe  {
+    /linewidth exch def
+    pop
+    offset 0 ne
+    { offset } if ] 0 setlinedash
+    linewidth dup 1 eq {pop 0} if setlinewidth
+  } bind def
+
+/sls    { pop } bind def
+
+/ssls  { [] 0 setdash
+          1 setlinewidth
+        } bind def
+
+%******************************************************************************
+% Fill pattern define code.
+%
+/fillpath  {
+    0 color ne { setFillColor } if
+    /str 1 string def
+    /minx minx 66 div
+    truncate 66 mul def
+    /miny miny 66 div
+    truncate 66 mul def
+
+          /fillLine maxx minx sub cvi 66 idiv 1 add string def
+
+          0 1 fillLine length 1 sub {
+            fillLine exch fillChar str cvs cvi 48 add put
+          } for
+
+          minx
+          miny 66 maxy
+            { exch dup 3 -1 roll moveto fillLine show
+          } for pop
+
+    hatchSet 1 eq {0 color ne { setLineColor } if stroke} if
+} bind def
+
+
+/fds  { pop /currchar 30 def} bind def
+/fdf   {
+    exch
+    /char exch def
+    /stipple stippleArray char get def
+    stipple exch currchar
+    exch putinterval
+    stippleArray char stipple put
+    /currchar currchar 2 sub def
+  } bind def
+/fde  {
+    pop
+  } bind def
+/sfp  {
+    /fillChar exch def
+    /hatchSet 0 def
+    fillChar 8 ge {/hatchSet 1 def} if
+    /StippleFont findfont 66 scalefont setfont
+  } bind def
+/setLineColor {
+  lineRed    1000 div
+  lineGreen  1000 div
+  lineBlue   1000 div
+  setrgbcolor
+} bind def
+
+/setFillColor {
+  fillRed    1000 div
+  fillGreen  1000 div
+  fillBlue   1000 div
+  setrgbcolor
+} bind def
+
+/slc {
+  /lineBlue  exch def
+  /lineGreen exch def
+  /lineRed   exch def
+  /color 1 def
+  lineBlue 1000 eq {lineGreen 1000 eq {lineRed 1000 eq {
+    /lineBlue  0 def
+    /lineGreen 0 def
+    /lineRed   0 def
+  } if} if} if
+} bind def
+
+/sfc {
+  /fillBlue  exch def
+  /fillGreen exch def
+  /fillRed   exch def
+  /color 1 def
+  fillBlue 1000 eq {fillGreen 1000 eq {fillRed 1000 eq {
+    /fillBlue  0 def
+    /fillGreen 0 def
+    /fillRed   0 def
+  } if} if} if
+} bind def
+%******************************************************************************
+%
+% End of Cadence ps.prologue
+%
+%******************************************************************************
+/setpacking where
+{
+	pop currpack setpacking
+} if
+%%EndProlog
+/#copies 1 def
+0 0 38400 52800 4800 pap
+%%Page: cds 1
+gis
+rotp
+14 0 52785 3459 clwin
+12 0 52787 3460 clwin
+0 0 52799 3460 clwin
+1 fds
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 <8888> fdf
+1 <4444> fdf
+1 <2222> fdf
+1 <1111> fdf
+1 fde
+1 sfp
+0 800 400 slc
+0 800 400 sfc
+ssls
+883 2625 1216 2958 dbf
+333 333 883 2625 dbu
+1216 1514 1882 2958 dbf
+1444 666 1216 1514 dbu
+2521 2625 2854 2958 dbf
+333 333 2521 2625 dbu
+2854 1514 3521 2958 dbf
+1444 667 2854 1514 dbu
+4145 2625 4478 2958 dbf
+333 333 4145 2625 dbu
+4478 1514 5145 2958 dbf
+1444 667 4478 1514 dbu
+5770 2625 6103 2958 dbf
+333 333 5770 2625 dbu
+6103 1514 6769 2958 dbf
+1444 666 6103 1514 dbu
+7394 2625 7727 2958 dbf
+333 333 7394 2625 dbu
+7727 1514 8394 2958 dbf
+1444 667 7727 1514 dbu
+9018 2625 9351 2958 dbf
+333 333 9018 2625 dbu
+9351 1514 10018 2958 dbf
+1444 667 9351 1514 dbu
+10643 2625 10976 2958 dbf
+333 333 10643 2625 dbu
+10976 1514 11642 2958 dbf
+1444 666 10976 1514 dbu
+12267 2625 12600 2958 dbf
+333 333 12267 2625 dbu
+12600 1514 13267 2958 dbf
+1444 667 12600 1514 dbu
+13891 2625 14224 2958 dbf
+333 333 13891 2625 dbu
+14224 1514 14891 2958 dbf
+1444 667 14224 1514 dbu
+15516 2625 15849 2958 dbf
+333 333 15516 2625 dbu
+15849 1514 16515 2958 dbf
+1444 666 15849 1514 dbu
+17140 2625 17473 2958 dbf
+333 333 17140 2625 dbu
+17473 1514 18140 2958 dbf
+1444 667 17473 1514 dbu
+18764 2625 19097 2958 dbf
+333 333 18764 2625 dbu
+19097 1514 19764 2958 dbf
+1444 667 19097 1514 dbu
+20389 2625 20722 2958 dbf
+333 333 20389 2625 dbu
+20722 1514 21388 2958 dbf
+1444 666 20722 1514 dbu
+22013 2625 22346 2958 dbf
+333 333 22013 2625 dbu
+22346 1514 23013 2958 dbf
+1444 667 22346 1514 dbu
+23637 2625 23970 2958 dbf
+333 333 23637 2625 dbu
+23970 1514 24637 2958 dbf
+1444 667 23970 1514 dbu
+25262 2625 25595 2958 dbf
+333 333 25262 2625 dbu
+25595 1514 26261 2958 dbf
+1444 666 25595 1514 dbu
+26886 2625 27219 2958 dbf
+333 333 26886 2625 dbu
+27219 1514 27886 2958 dbf
+1444 667 27219 1514 dbu
+28510 2625 28843 2958 dbf
+333 333 28510 2625 dbu
+28843 1514 29510 2958 dbf
+1444 667 28843 1514 dbu
+30135 2625 30468 2958 dbf
+333 333 30135 2625 dbu
+30468 1514 31134 2958 dbf
+1444 666 30468 1514 dbu
+31759 2625 32092 2958 dbf
+333 333 31759 2625 dbu
+32092 1514 32759 2958 dbf
+1444 667 32092 1514 dbu
+33383 2625 33716 2958 dbf
+333 333 33383 2625 dbu
+33716 1514 34383 2958 dbf
+1444 667 33716 1514 dbu
+35008 2625 35341 2958 dbf
+333 333 35008 2625 dbu
+35341 1514 36007 2958 dbf
+1444 666 35341 1514 dbu
+36632 2625 36965 2958 dbf
+333 333 36632 2625 dbu
+36965 1514 37632 2958 dbf
+1444 667 36965 1514 dbu
+38256 2625 38589 2958 dbf
+333 333 38256 2625 dbu
+38589 1514 39256 2958 dbf
+1444 667 38589 1514 dbu
+39881 2625 40214 2958 dbf
+333 333 39881 2625 dbu
+40214 1514 40880 2958 dbf
+1444 666 40214 1514 dbu
+41505 2625 41838 2958 dbf
+333 333 41505 2625 dbu
+41838 1514 42505 2958 dbf
+1444 667 41838 1514 dbu
+43129 2625 43462 2958 dbf
+333 333 43129 2625 dbu
+43462 1514 44129 2958 dbf
+1444 667 43462 1514 dbu
+44754 2625 45087 2958 dbf
+333 333 44754 2625 dbu
+45087 1514 45753 2958 dbf
+1444 666 45087 1514 dbu
+46378 2625 46711 2958 dbf
+333 333 46378 2625 dbu
+46711 1514 47378 2958 dbf
+1444 667 46711 1514 dbu
+48002 2625 48335 2958 dbf
+333 333 48002 2625 dbu
+48335 1514 49002 2958 dbf
+1444 667 48335 1514 dbu
+49627 2625 49960 2958 dbf
+333 333 49627 2625 dbu
+49960 1514 50626 2958 dbf
+1444 666 49960 1514 dbu
+2 fds
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 <aaaa> fdf
+2 <7777> fdf
+2 <aaaa> fdf
+2 <dddd> fdf
+2 fde
+2 sfp
+0 800 400 slc
+0 800 400 sfc
+994 2736 1105 2847 dbf
+111 111 994 2736 dbu
+1383 765 1716 1320 dbf
+555 333 1383 765 dbu
+2632 2736 2743 2847 dbf
+111 111 2632 2736 dbu
+3021 765 3354 1320 dbf
+555 333 3021 765 dbu
+4256 2736 4367 2847 dbf
+111 111 4256 2736 dbu
+4645 765 4978 1320 dbf
+555 333 4645 765 dbu
+5881 2736 5992 2847 dbf
+111 111 5881 2736 dbu
+6269 765 6603 1320 dbf
+555 334 6269 765 dbu
+7505 2736 7616 2847 dbf
+111 111 7505 2736 dbu
+7894 765 8227 1320 dbf
+555 333 7894 765 dbu
+9129 2736 9240 2847 dbf
+111 111 9129 2736 dbu
+9518 765 9851 1320 dbf
+555 333 9518 765 dbu
+10754 2736 10865 2847 dbf
+111 111 10754 2736 dbu
+11142 765 11476 1320 dbf
+555 334 11142 765 dbu
+12378 2736 12489 2847 dbf
+111 111 12378 2736 dbu
+12767 765 13100 1320 dbf
+555 333 12767 765 dbu
+14002 2736 14113 2847 dbf
+111 111 14002 2736 dbu
+14391 765 14724 1320 dbf
+555 333 14391 765 dbu
+15627 2736 15738 2847 dbf
+111 111 15627 2736 dbu
+16015 765 16349 1320 dbf
+555 334 16015 765 dbu
+17251 2736 17362 2847 dbf
+111 111 17251 2736 dbu
+17640 765 17973 1320 dbf
+555 333 17640 765 dbu
+18875 2736 18986 2847 dbf
+111 111 18875 2736 dbu
+19264 765 19597 1320 dbf
+555 333 19264 765 dbu
+20500 2736 20611 2847 dbf
+111 111 20500 2736 dbu
+20888 765 21222 1320 dbf
+555 334 20888 765 dbu
+22124 2736 22235 2847 dbf
+111 111 22124 2736 dbu
+22513 765 22846 1320 dbf
+555 333 22513 765 dbu
+23748 2736 23859 2847 dbf
+111 111 23748 2736 dbu
+24137 765 24470 1320 dbf
+555 333 24137 765 dbu
+25373 2736 25484 2847 dbf
+111 111 25373 2736 dbu
+25761 765 26095 1320 dbf
+555 334 25761 765 dbu
+26997 2736 27108 2847 dbf
+111 111 26997 2736 dbu
+27386 765 27719 1320 dbf
+555 333 27386 765 dbu
+28621 2736 28732 2847 dbf
+111 111 28621 2736 dbu
+29010 765 29343 1320 dbf
+555 333 29010 765 dbu
+30246 2736 30357 2847 dbf
+111 111 30246 2736 dbu
+30634 765 30968 1320 dbf
+555 334 30634 765 dbu
+31870 2736 31981 2847 dbf
+111 111 31870 2736 dbu
+32259 765 32592 1320 dbf
+555 333 32259 765 dbu
+33494 2736 33605 2847 dbf
+111 111 33494 2736 dbu
+33883 765 34216 1320 dbf
+555 333 33883 765 dbu
+35119 2736 35230 2847 dbf
+111 111 35119 2736 dbu
+35507 765 35841 1320 dbf
+555 334 35507 765 dbu
+36743 2736 36854 2847 dbf
+111 111 36743 2736 dbu
+37132 765 37465 1320 dbf
+555 333 37132 765 dbu
+38367 2736 38478 2847 dbf
+111 111 38367 2736 dbu
+38756 765 39089 1320 dbf
+555 333 38756 765 dbu
+39992 2736 40103 2847 dbf
+111 111 39992 2736 dbu
+40380 765 40714 1320 dbf
+555 334 40380 765 dbu
+41616 2736 41727 2847 dbf
+111 111 41616 2736 dbu
+42005 765 42338 1320 dbf
+555 333 42005 765 dbu
+43240 2736 43351 2847 dbf
+111 111 43240 2736 dbu
+43629 765 43962 1320 dbf
+555 333 43629 765 dbu
+44865 2736 44976 2847 dbf
+111 111 44865 2736 dbu
+45253 765 45587 1320 dbf
+555 334 45253 765 dbu
+46489 2736 46600 2847 dbf
+111 111 46489 2736 dbu
+46878 765 47211 1320 dbf
+555 333 46878 765 dbu
+48113 2736 48224 2847 dbf
+111 111 48113 2736 dbu
+48502 765 48835 1320 dbf
+555 333 48502 765 dbu
+49738 2736 49849 2847 dbf
+111 111 49738 2736 dbu
+50126 765 50460 1320 dbf
+555 334 50126 765 dbu
+1000 502 0 slc
+1000 502 0 sfc
+1160 751 1271 862 dbf
+111 111 1160 751 dbu
+1383 1681 1716 2792 dbf
+1111 333 1383 1681 dbu
+2799 751 2910 862 dbf
+111 111 2799 751 dbu
+3021 1681 3354 2792 dbf
+1111 333 3021 1681 dbu
+4423 751 4534 862 dbf
+111 111 4423 751 dbu
+4645 1681 4978 2792 dbf
+1111 333 4645 1681 dbu
+6047 751 6158 862 dbf
+111 111 6047 751 dbu
+6269 1681 6603 2792 dbf
+1111 334 6269 1681 dbu
+7672 751 7783 862 dbf
+111 111 7672 751 dbu
+7894 1681 8227 2792 dbf
+1111 333 7894 1681 dbu
+9296 751 9407 862 dbf
+111 111 9296 751 dbu
+9518 1681 9851 2792 dbf
+1111 333 9518 1681 dbu
+10920 751 11031 862 dbf
+111 111 10920 751 dbu
+11142 1681 11476 2792 dbf
+1111 334 11142 1681 dbu
+12545 751 12656 862 dbf
+111 111 12545 751 dbu
+12767 1681 13100 2792 dbf
+1111 333 12767 1681 dbu
+14169 751 14280 862 dbf
+111 111 14169 751 dbu
+14391 1681 14724 2792 dbf
+1111 333 14391 1681 dbu
+15793 751 15904 862 dbf
+111 111 15793 751 dbu
+16015 1681 16349 2792 dbf
+1111 334 16015 1681 dbu
+17418 751 17529 862 dbf
+111 111 17418 751 dbu
+17640 1681 17973 2792 dbf
+1111 333 17640 1681 dbu
+19042 751 19153 862 dbf
+111 111 19042 751 dbu
+19264 1681 19597 2792 dbf
+1111 333 19264 1681 dbu
+20666 751 20777 862 dbf
+111 111 20666 751 dbu
+20888 1681 21222 2792 dbf
+1111 334 20888 1681 dbu
+22291 751 22402 862 dbf
+111 111 22291 751 dbu
+22513 1681 22846 2792 dbf
+1111 333 22513 1681 dbu
+23915 751 24026 862 dbf
+111 111 23915 751 dbu
+24137 1681 24470 2792 dbf
+1111 333 24137 1681 dbu
+25539 751 25650 862 dbf
+111 111 25539 751 dbu
+25761 1681 26095 2792 dbf
+1111 334 25761 1681 dbu
+27164 751 27275 862 dbf
+111 111 27164 751 dbu
+27386 1681 27719 2792 dbf
+1111 333 27386 1681 dbu
+28788 751 28899 862 dbf
+111 111 28788 751 dbu
+29010 1681 29343 2792 dbf
+1111 333 29010 1681 dbu
+30412 751 30523 862 dbf
+111 111 30412 751 dbu
+30634 1681 30968 2792 dbf
+1111 334 30634 1681 dbu
+32037 751 32148 862 dbf
+111 111 32037 751 dbu
+32259 1681 32592 2792 dbf
+1111 333 32259 1681 dbu
+33661 751 33772 862 dbf
+111 111 33661 751 dbu
+33883 1681 34216 2792 dbf
+1111 333 33883 1681 dbu
+35285 751 35396 862 dbf
+111 111 35285 751 dbu
+35507 1681 35841 2792 dbf
+1111 334 35507 1681 dbu
+36910 751 37021 862 dbf
+111 111 36910 751 dbu
+37132 1681 37465 2792 dbf
+1111 333 37132 1681 dbu
+38534 751 38645 862 dbf
+111 111 38534 751 dbu
+38756 1681 39089 2792 dbf
+1111 333 38756 1681 dbu
+40158 751 40269 862 dbf
+111 111 40158 751 dbu
+40380 1681 40714 2792 dbf
+1111 334 40380 1681 dbu
+41783 751 41894 862 dbf
+111 111 41783 751 dbu
+42005 1681 42338 2792 dbf
+1111 333 42005 1681 dbu
+43407 751 43518 862 dbf
+111 111 43407 751 dbu
+43629 1681 43962 2792 dbf
+1111 333 43629 1681 dbu
+45031 751 45142 862 dbf
+111 111 45031 751 dbu
+45253 1681 45587 2792 dbf
+1111 334 45253 1681 dbu
+46656 751 46767 862 dbf
+111 111 46656 751 dbu
+46878 1681 47211 2792 dbf
+1111 333 46878 1681 dbu
+48280 751 48391 862 dbf
+111 111 48280 751 dbu
+48502 1681 48835 2792 dbf
+1111 333 48502 1681 dbu
+49904 751 50015 862 dbf
+111 111 49904 751 dbu
+50126 1681 50460 2792 dbf
+1111 334 50126 1681 dbu
+0 800 400 slc
+0 800 400 sfc
+223 222 938 2680 dbu
+694 444 1327 695 dbu
+223 223 2576 2680 dbu
+694 444 2965 695 dbu
+223 222 4201 2680 dbu
+694 444 4590 695 dbu
+223 222 5825 2680 dbu
+694 444 6214 695 dbu
+223 223 7449 2680 dbu
+694 444 7838 695 dbu
+223 222 9074 2680 dbu
+694 444 9463 695 dbu
+223 222 10698 2680 dbu
+694 444 11087 695 dbu
+223 223 12322 2680 dbu
+694 444 12711 695 dbu
+223 222 13947 2680 dbu
+694 444 14336 695 dbu
+223 222 15571 2680 dbu
+694 444 15960 695 dbu
+223 223 17195 2680 dbu
+694 444 17584 695 dbu
+223 222 18820 2680 dbu
+694 444 19209 695 dbu
+223 222 20444 2680 dbu
+694 444 20833 695 dbu
+223 223 22068 2680 dbu
+694 444 22457 695 dbu
+223 222 23693 2680 dbu
+694 444 24082 695 dbu
+223 222 25317 2680 dbu
+694 444 25706 695 dbu
+223 223 26941 2680 dbu
+694 444 27330 695 dbu
+223 222 28566 2680 dbu
+694 444 28955 695 dbu
+223 222 30190 2680 dbu
+694 444 30579 695 dbu
+223 223 31814 2680 dbu
+694 444 32203 695 dbu
+223 222 33439 2680 dbu
+694 444 33828 695 dbu
+223 222 35063 2680 dbu
+694 444 35452 695 dbu
+223 222 36688 2680 dbu
+694 444 37076 695 dbu
+223 222 38312 2680 dbu
+694 444 38701 695 dbu
+223 222 39936 2680 dbu
+694 444 40325 695 dbu
+223 222 41561 2680 dbu
+694 444 41949 695 dbu
+223 222 43185 2680 dbu
+694 444 43574 695 dbu
+223 222 44809 2680 dbu
+694 444 45198 695 dbu
+223 222 46434 2680 dbu
+694 444 46822 695 dbu
+223 222 48058 2680 dbu
+694 444 48447 695 dbu
+223 222 49682 2680 dbu
+694 444 50071 695 dbu
+1000 502 0 slc
+1000 502 0 sfc
+222 222 1105 695 dbu
+1250 444 1327 1611 dbu
+222 222 2743 695 dbu
+1250 444 2965 1611 dbu
+222 223 4367 695 dbu
+1250 444 4590 1611 dbu
+222 222 5992 695 dbu
+1250 444 6214 1611 dbu
+222 222 7616 695 dbu
+1250 444 7838 1611 dbu
+222 223 9240 695 dbu
+1250 444 9463 1611 dbu
+222 222 10865 695 dbu
+1250 444 11087 1611 dbu
+222 222 12489 695 dbu
+1250 444 12711 1611 dbu
+222 223 14113 695 dbu
+1250 444 14336 1611 dbu
+222 222 15738 695 dbu
+1250 444 15960 1611 dbu
+222 222 17362 695 dbu
+1250 444 17584 1611 dbu
+222 223 18986 695 dbu
+1250 444 19209 1611 dbu
+222 222 20611 695 dbu
+1250 444 20833 1611 dbu
+222 222 22235 695 dbu
+1250 444 22457 1611 dbu
+222 223 23859 695 dbu
+1250 444 24082 1611 dbu
+222 222 25484 695 dbu
+1250 444 25706 1611 dbu
+222 222 27108 695 dbu
+1250 444 27330 1611 dbu
+222 223 28732 695 dbu
+1250 444 28955 1611 dbu
+222 222 30357 695 dbu
+1250 444 30579 1611 dbu
+222 222 31981 695 dbu
+1250 444 32203 1611 dbu
+222 223 33605 695 dbu
+1250 444 33828 1611 dbu
+222 222 35230 695 dbu
+1250 444 35452 1611 dbu
+222 222 36854 695 dbu
+1250 444 37076 1611 dbu
+222 223 38478 695 dbu
+1250 444 38701 1611 dbu
+222 222 40103 695 dbu
+1250 444 40325 1611 dbu
+222 222 41727 695 dbu
+1250 444 41949 1611 dbu
+222 223 43351 695 dbu
+1250 444 43574 1611 dbu
+222 222 44976 695 dbu
+1250 444 45198 1611 dbu
+222 222 46600 695 dbu
+1250 444 46822 1611 dbu
+222 223 48224 695 dbu
+1250 444 48447 1611 dbu
+222 222 49849 695 dbu
+1250 444 50071 1611 dbu
+3 fds
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 <aaaa> fdf
+3 <5555> fdf
+3 fde
+3 sfp
+1000 0 0 slc
+1000 0 0 sfc
+994 1431 1091 1487 dbf
+56 97 994 1431 dbu
+994 1431 1577 1487 dbf
+56 583 994 1431 dbu
+1521 695 1577 2861 dbf
+2166 56 1521 695 dbu
+1521 1611 1577 2861 dbf
+1250 56 1521 1611 dbu
+1521 695 1577 1389 dbf
+694 56 1521 695 dbu
+2632 1431 2729 1487 dbf
+56 97 2632 1431 dbu
+2632 1431 3215 1487 dbf
+56 583 2632 1431 dbu
+3160 695 3215 2861 dbf
+2166 55 3160 695 dbu
+3160 1611 3215 2861 dbf
+1250 55 3160 1611 dbu
+3160 695 3215 1389 dbf
+694 55 3160 695 dbu
+4256 1431 4354 1487 dbf
+56 98 4256 1431 dbu
+4256 1431 4839 1487 dbf
+56 583 4256 1431 dbu
+4784 695 4839 2861 dbf
+2166 55 4784 695 dbu
+4784 1611 4839 2861 dbf
+1250 55 4784 1611 dbu
+4784 695 4839 1389 dbf
+694 55 4784 695 dbu
+5881 1431 5978 1487 dbf
+56 97 5881 1431 dbu
+5881 1431 6464 1487 dbf
+56 583 5881 1431 dbu
+6408 695 6464 2861 dbf
+2166 56 6408 695 dbu
+6408 1611 6464 2861 dbf
+1250 56 6408 1611 dbu
+6408 695 6464 1389 dbf
+694 56 6408 695 dbu
+7505 1431 7602 1487 dbf
+56 97 7505 1431 dbu
+7505 1431 8088 1487 dbf
+56 583 7505 1431 dbu
+8033 695 8088 2861 dbf
+2166 55 8033 695 dbu
+8033 1611 8088 2861 dbf
+1250 55 8033 1611 dbu
+8033 695 8088 1389 dbf
+694 55 8033 695 dbu
+9129 1431 9227 1487 dbf
+56 98 9129 1431 dbu
+9129 1431 9712 1487 dbf
+56 583 9129 1431 dbu
+9657 695 9712 2861 dbf
+2166 55 9657 695 dbu
+9657 1611 9712 2861 dbf
+1250 55 9657 1611 dbu
+9657 695 9712 1389 dbf
+694 55 9657 695 dbu
+10754 1431 10851 1487 dbf
+56 97 10754 1431 dbu
+10754 1431 11337 1487 dbf
+56 583 10754 1431 dbu
+11281 695 11337 2861 dbf
+2166 56 11281 695 dbu
+11281 1611 11337 2861 dbf
+1250 56 11281 1611 dbu
+11281 695 11337 1389 dbf
+694 56 11281 695 dbu
+12378 1431 12475 1487 dbf
+56 97 12378 1431 dbu
+12378 1431 12961 1487 dbf
+56 583 12378 1431 dbu
+12906 695 12961 2861 dbf
+2166 55 12906 695 dbu
+12906 1611 12961 2861 dbf
+1250 55 12906 1611 dbu
+12906 695 12961 1389 dbf
+694 55 12906 695 dbu
+14002 1431 14100 1487 dbf
+56 98 14002 1431 dbu
+14002 1431 14585 1487 dbf
+56 583 14002 1431 dbu
+14530 695 14585 2861 dbf
+2166 55 14530 695 dbu
+14530 1611 14585 2861 dbf
+1250 55 14530 1611 dbu
+14530 695 14585 1389 dbf
+694 55 14530 695 dbu
+15627 1431 15724 1487 dbf
+56 97 15627 1431 dbu
+15627 1431 16210 1487 dbf
+56 583 15627 1431 dbu
+16154 695 16210 2861 dbf
+2166 56 16154 695 dbu
+16154 1611 16210 2861 dbf
+1250 56 16154 1611 dbu
+16154 695 16210 1389 dbf
+694 56 16154 695 dbu
+17251 1431 17348 1487 dbf
+56 97 17251 1431 dbu
+17251 1431 17834 1487 dbf
+56 583 17251 1431 dbu
+17779 695 17834 2861 dbf
+2166 55 17779 695 dbu
+17779 1611 17834 2861 dbf
+1250 55 17779 1611 dbu
+17779 695 17834 1389 dbf
+694 55 17779 695 dbu
+18875 1431 18973 1487 dbf
+56 98 18875 1431 dbu
+18875 1431 19458 1487 dbf
+56 583 18875 1431 dbu
+19403 695 19458 2861 dbf
+2166 55 19403 695 dbu
+19403 1611 19458 2861 dbf
+1250 55 19403 1611 dbu
+19403 695 19458 1389 dbf
+694 55 19403 695 dbu
+20500 1431 20597 1487 dbf
+56 97 20500 1431 dbu
+20500 1431 21083 1487 dbf
+56 583 20500 1431 dbu
+21027 695 21083 2861 dbf
+2166 56 21027 695 dbu
+21027 1611 21083 2861 dbf
+1250 56 21027 1611 dbu
+21027 695 21083 1389 dbf
+694 56 21027 695 dbu
+22124 1431 22221 1487 dbf
+56 97 22124 1431 dbu
+22124 1431 22707 1487 dbf
+56 583 22124 1431 dbu
+22652 695 22707 2861 dbf
+2166 55 22652 695 dbu
+22652 1611 22707 2861 dbf
+1250 55 22652 1611 dbu
+22652 695 22707 1389 dbf
+694 55 22652 695 dbu
+23748 1431 23846 1487 dbf
+56 98 23748 1431 dbu
+23748 1431 24331 1487 dbf
+56 583 23748 1431 dbu
+24276 695 24331 2861 dbf
+2166 55 24276 695 dbu
+24276 1611 24331 2861 dbf
+1250 55 24276 1611 dbu
+24276 695 24331 1389 dbf
+694 55 24276 695 dbu
+25373 1431 25470 1487 dbf
+56 97 25373 1431 dbu
+25373 1431 25956 1487 dbf
+56 583 25373 1431 dbu
+25900 695 25956 2861 dbf
+2166 56 25900 695 dbu
+25900 1611 25956 2861 dbf
+1250 56 25900 1611 dbu
+25900 695 25956 1389 dbf
+694 56 25900 695 dbu
+26997 1431 27094 1487 dbf
+56 97 26997 1431 dbu
+26997 1431 27580 1487 dbf
+56 583 26997 1431 dbu
+27525 695 27580 2861 dbf
+2166 55 27525 695 dbu
+27525 1611 27580 2861 dbf
+1250 55 27525 1611 dbu
+27525 695 27580 1389 dbf
+694 55 27525 695 dbu
+28621 1431 28719 1487 dbf
+56 98 28621 1431 dbu
+28621 1431 29204 1487 dbf
+56 583 28621 1431 dbu
+29149 695 29204 2861 dbf
+2166 55 29149 695 dbu
+29149 1611 29204 2861 dbf
+1250 55 29149 1611 dbu
+29149 695 29204 1389 dbf
+694 55 29149 695 dbu
+30246 1431 30343 1487 dbf
+56 97 30246 1431 dbu
+30246 1431 30829 1487 dbf
+56 583 30246 1431 dbu
+30773 695 30829 2861 dbf
+2166 56 30773 695 dbu
+30773 1611 30829 2861 dbf
+1250 56 30773 1611 dbu
+30773 695 30829 1389 dbf
+694 56 30773 695 dbu
+31870 1431 31967 1487 dbf
+56 97 31870 1431 dbu
+31870 1431 32453 1487 dbf
+56 583 31870 1431 dbu
+32398 695 32453 2861 dbf
+2166 55 32398 695 dbu
+32398 1611 32453 2861 dbf
+1250 55 32398 1611 dbu
+32398 695 32453 1389 dbf
+694 55 32398 695 dbu
+33494 1431 33592 1487 dbf
+56 98 33494 1431 dbu
+33494 1431 34077 1487 dbf
+56 583 33494 1431 dbu
+34022 695 34077 2861 dbf
+2166 55 34022 695 dbu
+34022 1611 34077 2861 dbf
+1250 55 34022 1611 dbu
+34022 695 34077 1389 dbf
+694 55 34022 695 dbu
+35119 1431 35216 1487 dbf
+56 97 35119 1431 dbu
+35119 1431 35702 1487 dbf
+56 583 35119 1431 dbu
+35646 695 35702 2861 dbf
+2166 56 35646 695 dbu
+35646 1611 35702 2861 dbf
+1250 56 35646 1611 dbu
+35646 695 35702 1389 dbf
+694 56 35646 695 dbu
+36743 1431 36840 1487 dbf
+56 97 36743 1431 dbu
+36743 1431 37326 1487 dbf
+56 583 36743 1431 dbu
+37271 695 37326 2861 dbf
+2166 55 37271 695 dbu
+37271 1611 37326 2861 dbf
+1250 55 37271 1611 dbu
+37271 695 37326 1389 dbf
+694 55 37271 695 dbu
+38367 1431 38465 1487 dbf
+56 98 38367 1431 dbu
+38367 1431 38950 1487 dbf
+56 583 38367 1431 dbu
+38895 695 38950 2861 dbf
+2166 55 38895 695 dbu
+38895 1611 38950 2861 dbf
+1250 55 38895 1611 dbu
+38895 695 38950 1389 dbf
+694 55 38895 695 dbu
+39992 1431 40089 1487 dbf
+56 97 39992 1431 dbu
+39992 1431 40575 1487 dbf
+56 583 39992 1431 dbu
+40519 695 40575 2861 dbf
+2166 56 40519 695 dbu
+40519 1611 40575 2861 dbf
+1250 56 40519 1611 dbu
+40519 695 40575 1389 dbf
+694 56 40519 695 dbu
+41616 1431 41713 1487 dbf
+56 97 41616 1431 dbu
+41616 1431 42199 1487 dbf
+56 583 41616 1431 dbu
+42144 695 42199 2861 dbf
+2166 55 42144 695 dbu
+42144 1611 42199 2861 dbf
+1250 55 42144 1611 dbu
+42144 695 42199 1389 dbf
+694 55 42144 695 dbu
+43240 1431 43338 1487 dbf
+56 98 43240 1431 dbu
+43240 1431 43823 1487 dbf
+56 583 43240 1431 dbu
+43768 695 43823 2861 dbf
+2166 55 43768 695 dbu
+43768 1611 43823 2861 dbf
+1250 55 43768 1611 dbu
+43768 695 43823 1389 dbf
+694 55 43768 695 dbu
+44865 1431 44962 1487 dbf
+56 97 44865 1431 dbu
+44865 1431 45448 1487 dbf
+56 583 44865 1431 dbu
+45392 695 45448 2861 dbf
+2166 56 45392 695 dbu
+45392 1611 45448 2861 dbf
+1250 56 45392 1611 dbu
+45392 695 45448 1389 dbf
+694 56 45392 695 dbu
+46489 1431 46586 1487 dbf
+56 97 46489 1431 dbu
+46489 1431 47072 1487 dbf
+56 583 46489 1431 dbu
+47017 695 47072 2861 dbf
+2166 55 47017 695 dbu
+47017 1611 47072 2861 dbf
+1250 55 47017 1611 dbu
+47017 695 47072 1389 dbf
+694 55 47017 695 dbu
+48113 1431 48211 1487 dbf
+56 98 48113 1431 dbu
+48113 1431 48696 1487 dbf
+56 583 48113 1431 dbu
+48641 695 48696 2861 dbf
+2166 55 48641 695 dbu
+48641 1611 48696 2861 dbf
+1250 55 48641 1611 dbu
+48641 695 48696 1389 dbf
+694 55 48641 695 dbu
+49738 1431 49835 1487 dbf
+56 97 49738 1431 dbu
+49738 1431 50321 1487 dbf
+56 583 49738 1431 dbu
+50265 695 50321 2861 dbf
+2166 56 50265 695 dbu
+50265 1611 50321 2861 dbf
+1250 56 50265 1611 dbu
+50265 695 50321 1389 dbf
+694 56 50265 695 dbu
+4 fds
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 <1111> fdf
+4 <2222> fdf
+4 <4444> fdf
+4 <8888> fdf
+4 fde
+4 sfp
+0 0 1000 slc
+0 0 1000 sfc
+51251 1403 51848 1514 dbf
+111 597 51251 1403 dbu
+50237 362 51556 445 dbf
+83 1319 50237 362 dbu
+51418 362 51556 445 dbf
+83 138 51418 362 dbu
+51223 2986 51376 3069 dbf
+83 153 51223 2986 dbu
+1494 362 2813 445 dbf
+83 1319 1494 362 dbu
+3132 362 4451 445 dbf
+83 1319 3132 362 dbu
+4756 362 6075 445 dbf
+83 1319 4756 362 dbu
+6380 362 7699 445 dbf
+83 1319 6380 362 dbu
+8005 362 9324 445 dbf
+83 1319 8005 362 dbu
+9629 362 10948 445 dbf
+83 1319 9629 362 dbu
+11253 362 12572 445 dbf
+83 1319 11253 362 dbu
+12878 362 14197 445 dbf
+83 1319 12878 362 dbu
+14502 362 15821 445 dbf
+83 1319 14502 362 dbu
+16126 362 17445 445 dbf
+83 1319 16126 362 dbu
+17751 362 19070 445 dbf
+83 1319 17751 362 dbu
+19375 362 20694 445 dbf
+83 1319 19375 362 dbu
+20999 362 22318 445 dbf
+83 1319 20999 362 dbu
+22624 362 23943 445 dbf
+83 1319 22624 362 dbu
+24248 362 25567 445 dbf
+83 1319 24248 362 dbu
+25872 362 27191 445 dbf
+83 1319 25872 362 dbu
+27497 362 28816 445 dbf
+83 1319 27497 362 dbu
+29121 362 30440 445 dbf
+83 1319 29121 362 dbu
+30745 362 32064 445 dbf
+83 1319 30745 362 dbu
+32370 362 33689 445 dbf
+83 1319 32370 362 dbu
+33994 362 35313 445 dbf
+83 1319 33994 362 dbu
+35618 362 36937 445 dbf
+83 1319 35618 362 dbu
+37243 362 38562 445 dbf
+83 1319 37243 362 dbu
+38867 362 40186 445 dbf
+83 1319 38867 362 dbu
+40491 362 41810 445 dbf
+83 1319 40491 362 dbu
+42116 362 43435 445 dbf
+83 1319 42116 362 dbu
+43740 362 45059 445 dbf
+83 1319 43740 362 dbu
+45364 362 46683 445 dbf
+83 1319 45364 362 dbu
+46989 362 48308 445 dbf
+83 1319 46989 362 dbu
+48613 362 49932 445 dbf
+83 1319 48613 362 dbu
+50237 2986 51376 3069 dbf
+83 1139 50237 2986 dbu
+48613 2986 49752 3069 dbf
+83 1139 48613 2986 dbu
+46989 2986 48127 3069 dbf
+83 1138 46989 2986 dbu
+45364 2986 46503 3069 dbf
+83 1139 45364 2986 dbu
+43740 2986 44879 3069 dbf
+83 1139 43740 2986 dbu
+42116 2986 43254 3069 dbf
+83 1138 42116 2986 dbu
+40491 2986 41630 3069 dbf
+83 1139 40491 2986 dbu
+38867 2986 40006 3069 dbf
+83 1139 38867 2986 dbu
+37243 2986 38381 3069 dbf
+83 1138 37243 2986 dbu
+35618 2986 36757 3069 dbf
+83 1139 35618 2986 dbu
+33994 2986 35133 3069 dbf
+83 1139 33994 2986 dbu
+32370 2986 33508 3069 dbf
+83 1138 32370 2986 dbu
+30745 2986 31884 3069 dbf
+83 1139 30745 2986 dbu
+29121 2986 30260 3069 dbf
+83 1139 29121 2986 dbu
+27497 2986 28635 3069 dbf
+83 1138 27497 2986 dbu
+25872 2986 27011 3069 dbf
+83 1139 25872 2986 dbu
+24248 2986 25387 3069 dbf
+83 1139 24248 2986 dbu
+22624 2986 23762 3069 dbf
+83 1138 22624 2986 dbu
+20999 2986 22138 3069 dbf
+83 1139 20999 2986 dbu
+19375 2986 20514 3069 dbf
+83 1139 19375 2986 dbu
+17751 2986 18889 3069 dbf
+83 1138 17751 2986 dbu
+16126 2986 17265 3069 dbf
+83 1139 16126 2986 dbu
+14502 2986 15641 3069 dbf
+83 1139 14502 2986 dbu
+12878 2986 14016 3069 dbf
+83 1138 12878 2986 dbu
+11253 2986 12392 3069 dbf
+83 1139 11253 2986 dbu
+9629 2986 10768 3069 dbf
+83 1139 9629 2986 dbu
+8005 2986 9143 3069 dbf
+83 1138 8005 2986 dbu
+6380 2986 7519 3069 dbf
+83 1139 6380 2986 dbu
+4756 2986 5895 3069 dbf
+83 1139 4756 2986 dbu
+3132 2986 4270 3069 dbf
+83 1138 3132 2986 dbu
+1494 2986 2632 3069 dbf
+83 1138 1494 2986 dbu
+952 1389 1091 1528 dbf
+139 139 952 1389 dbu
+51334 1389 51473 1528 dbf
+139 139 51334 1389 dbu
+994 2736 1105 3069 dbf
+333 111 994 2736 dbu
+994 2736 1105 2847 dbf
+111 111 994 2736 dbu
+994 2986 1105 3069 dbf
+83 111 994 2986 dbu
+1160 362 1271 862 dbf
+500 111 1160 362 dbu
+1160 751 1271 862 dbf
+111 111 1160 751 dbu
+1160 362 1271 431 dbf
+69 111 1160 362 dbu
+994 2986 1494 3069 dbf
+83 500 994 2986 dbu
+1160 362 1494 445 dbf
+83 334 1160 362 dbu
+1383 1681 1494 3069 dbf
+1388 111 1383 1681 dbu
+1383 1681 1494 2792 dbf
+1111 111 1383 1681 dbu
+1383 362 1494 1320 dbf
+958 111 1383 362 dbu
+1383 765 1494 1320 dbf
+555 111 1383 765 dbu
+1605 1417 1716 2792 dbf
+1375 111 1605 1417 dbu
+1605 1681 1716 2792 dbf
+1111 111 1605 1681 dbu
+1605 765 1716 1487 dbf
+722 111 1605 765 dbu
+1605 765 1716 1320 dbf
+555 111 1605 765 dbu
+1605 1417 1716 1487 dbf
+70 111 1605 1417 dbu
+1605 1403 2729 1514 dbf
+111 1124 1605 1403 dbu
+2507 1403 2729 1514 dbf
+111 222 2507 1403 dbu
+2632 2736 2743 3069 dbf
+333 111 2632 2736 dbu
+2632 2736 2743 2847 dbf
+111 111 2632 2736 dbu
+2632 2986 2743 3069 dbf
+83 111 2632 2986 dbu
+2799 362 2910 862 dbf
+500 111 2799 362 dbu
+2799 751 2910 862 dbf
+111 111 2799 751 dbu
+2799 362 2910 431 dbf
+69 111 2799 362 dbu
+2632 2986 3132 3069 dbf
+83 500 2632 2986 dbu
+2799 362 3132 445 dbf
+83 333 2799 362 dbu
+3021 1681 3132 3069 dbf
+1388 111 3021 1681 dbu
+3021 1681 3132 2792 dbf
+1111 111 3021 1681 dbu
+3021 362 3132 1320 dbf
+958 111 3021 362 dbu
+3021 765 3132 1320 dbf
+555 111 3021 765 dbu
+3243 1417 3354 2792 dbf
+1375 111 3243 1417 dbu
+3243 1681 3354 2792 dbf
+1111 111 3243 1681 dbu
+3243 765 3354 1487 dbf
+722 111 3243 765 dbu
+3243 765 3354 1320 dbf
+555 111 3243 765 dbu
+3243 1417 3354 1487 dbf
+70 111 3243 1417 dbu
+3243 1403 4367 1514 dbf
+111 1124 3243 1403 dbu
+4145 1403 4367 1514 dbf
+111 222 4145 1403 dbu
+4256 2736 4367 3069 dbf
+333 111 4256 2736 dbu
+4256 2736 4367 2847 dbf
+111 111 4256 2736 dbu
+4256 2986 4367 3069 dbf
+83 111 4256 2986 dbu
+4423 362 4534 862 dbf
+500 111 4423 362 dbu
+4423 751 4534 862 dbf
+111 111 4423 751 dbu
+4423 362 4534 431 dbf
+69 111 4423 362 dbu
+4256 2986 4756 3069 dbf
+83 500 4256 2986 dbu
+4423 362 4756 445 dbf
+83 333 4423 362 dbu
+4645 1681 4756 3069 dbf
+1388 111 4645 1681 dbu
+4645 1681 4756 2792 dbf
+1111 111 4645 1681 dbu
+4645 362 4756 1320 dbf
+958 111 4645 362 dbu
+4645 765 4756 1320 dbf
+555 111 4645 765 dbu
+4867 1417 4978 2792 dbf
+1375 111 4867 1417 dbu
+4867 1681 4978 2792 dbf
+1111 111 4867 1681 dbu
+4867 765 4978 1487 dbf
+722 111 4867 765 dbu
+4867 765 4978 1320 dbf
+555 111 4867 765 dbu
+4867 1417 4978 1487 dbf
+70 111 4867 1417 dbu
+4867 1403 5992 1514 dbf
+111 1125 4867 1403 dbu
+5770 1403 5992 1514 dbf
+111 222 5770 1403 dbu
+5881 2736 5992 3069 dbf
+333 111 5881 2736 dbu
+5881 2736 5992 2847 dbf
+111 111 5881 2736 dbu
+5881 2986 5992 3069 dbf
+83 111 5881 2986 dbu
+6047 362 6158 862 dbf
+500 111 6047 362 dbu
+6047 751 6158 862 dbf
+111 111 6047 751 dbu
+6047 362 6158 431 dbf
+69 111 6047 362 dbu
+5881 2986 6380 3069 dbf
+83 499 5881 2986 dbu
+6047 362 6380 445 dbf
+83 333 6047 362 dbu
+6269 1681 6380 3069 dbf
+1388 111 6269 1681 dbu
+6269 1681 6380 2792 dbf
+1111 111 6269 1681 dbu
+6269 362 6380 1320 dbf
+958 111 6269 362 dbu
+6269 765 6380 1320 dbf
+555 111 6269 765 dbu
+6492 1417 6603 2792 dbf
+1375 111 6492 1417 dbu
+6492 1681 6603 2792 dbf
+1111 111 6492 1681 dbu
+6492 765 6603 1487 dbf
+722 111 6492 765 dbu
+6492 765 6603 1320 dbf
+555 111 6492 765 dbu
+6492 1417 6603 1487 dbf
+70 111 6492 1417 dbu
+6492 1403 7616 1514 dbf
+111 1124 6492 1403 dbu
+7394 1403 7616 1514 dbf
+111 222 7394 1403 dbu
+7505 2736 7616 3069 dbf
+333 111 7505 2736 dbu
+7505 2736 7616 2847 dbf
+111 111 7505 2736 dbu
+7505 2986 7616 3069 dbf
+83 111 7505 2986 dbu
+7672 362 7783 862 dbf
+500 111 7672 362 dbu
+7672 751 7783 862 dbf
+111 111 7672 751 dbu
+7672 362 7783 431 dbf
+69 111 7672 362 dbu
+7505 2986 8005 3069 dbf
+83 500 7505 2986 dbu
+7672 362 8005 445 dbf
+83 333 7672 362 dbu
+7894 1681 8005 3069 dbf
+1388 111 7894 1681 dbu
+7894 1681 8005 2792 dbf
+1111 111 7894 1681 dbu
+7894 362 8005 1320 dbf
+958 111 7894 362 dbu
+7894 765 8005 1320 dbf
+555 111 7894 765 dbu
+8116 1417 8227 2792 dbf
+1375 111 8116 1417 dbu
+8116 1681 8227 2792 dbf
+1111 111 8116 1681 dbu
+8116 765 8227 1487 dbf
+722 111 8116 765 dbu
+8116 765 8227 1320 dbf
+555 111 8116 765 dbu
+8116 1417 8227 1487 dbf
+70 111 8116 1417 dbu
+8116 1403 9240 1514 dbf
+111 1124 8116 1403 dbu
+9018 1403 9240 1514 dbf
+111 222 9018 1403 dbu
+9129 2736 9240 3069 dbf
+333 111 9129 2736 dbu
+9129 2736 9240 2847 dbf
+111 111 9129 2736 dbu
+9129 2986 9240 3069 dbf
+83 111 9129 2986 dbu
+9296 362 9407 862 dbf
+500 111 9296 362 dbu
+9296 751 9407 862 dbf
+111 111 9296 751 dbu
+9296 362 9407 431 dbf
+69 111 9296 362 dbu
+9129 2986 9629 3069 dbf
+83 500 9129 2986 dbu
+9296 362 9629 445 dbf
+83 333 9296 362 dbu
+9518 1681 9629 3069 dbf
+1388 111 9518 1681 dbu
+9518 1681 9629 2792 dbf
+1111 111 9518 1681 dbu
+9518 362 9629 1320 dbf
+958 111 9518 362 dbu
+9518 765 9629 1320 dbf
+555 111 9518 765 dbu
+9740 1417 9851 2792 dbf
+1375 111 9740 1417 dbu
+9740 1681 9851 2792 dbf
+1111 111 9740 1681 dbu
+9740 765 9851 1487 dbf
+722 111 9740 765 dbu
+9740 765 9851 1320 dbf
+555 111 9740 765 dbu
+9740 1417 9851 1487 dbf
+70 111 9740 1417 dbu
+9740 1403 10865 1514 dbf
+111 1125 9740 1403 dbu
+10643 1403 10865 1514 dbf
+111 222 10643 1403 dbu
+10754 2736 10865 3069 dbf
+333 111 10754 2736 dbu
+10754 2736 10865 2847 dbf
+111 111 10754 2736 dbu
+10754 2986 10865 3069 dbf
+83 111 10754 2986 dbu
+10920 362 11031 862 dbf
+500 111 10920 362 dbu
+10920 751 11031 862 dbf
+111 111 10920 751 dbu
+10920 362 11031 431 dbf
+69 111 10920 362 dbu
+10754 2986 11253 3069 dbf
+83 499 10754 2986 dbu
+10920 362 11253 445 dbf
+83 333 10920 362 dbu
+11142 1681 11253 3069 dbf
+1388 111 11142 1681 dbu
+11142 1681 11253 2792 dbf
+1111 111 11142 1681 dbu
+11142 362 11253 1320 dbf
+958 111 11142 362 dbu
+11142 765 11253 1320 dbf
+555 111 11142 765 dbu
+11365 1417 11476 2792 dbf
+1375 111 11365 1417 dbu
+11365 1681 11476 2792 dbf
+1111 111 11365 1681 dbu
+11365 765 11476 1487 dbf
+722 111 11365 765 dbu
+11365 765 11476 1320 dbf
+555 111 11365 765 dbu
+11365 1417 11476 1487 dbf
+70 111 11365 1417 dbu
+11365 1403 12489 1514 dbf
+111 1124 11365 1403 dbu
+12267 1403 12489 1514 dbf
+111 222 12267 1403 dbu
+12378 2736 12489 3069 dbf
+333 111 12378 2736 dbu
+12378 2736 12489 2847 dbf
+111 111 12378 2736 dbu
+12378 2986 12489 3069 dbf
+83 111 12378 2986 dbu
+12545 362 12656 862 dbf
+500 111 12545 362 dbu
+12545 751 12656 862 dbf
+111 111 12545 751 dbu
+12545 362 12656 431 dbf
+69 111 12545 362 dbu
+12378 2986 12878 3069 dbf
+83 500 12378 2986 dbu
+12545 362 12878 445 dbf
+83 333 12545 362 dbu
+12767 1681 12878 3069 dbf
+1388 111 12767 1681 dbu
+12767 1681 12878 2792 dbf
+1111 111 12767 1681 dbu
+12767 362 12878 1320 dbf
+958 111 12767 362 dbu
+12767 765 12878 1320 dbf
+555 111 12767 765 dbu
+12989 1417 13100 2792 dbf
+1375 111 12989 1417 dbu
+12989 1681 13100 2792 dbf
+1111 111 12989 1681 dbu
+12989 765 13100 1487 dbf
+722 111 12989 765 dbu
+12989 765 13100 1320 dbf
+555 111 12989 765 dbu
+12989 1417 13100 1487 dbf
+70 111 12989 1417 dbu
+12989 1403 14113 1514 dbf
+111 1124 12989 1403 dbu
+13891 1403 14113 1514 dbf
+111 222 13891 1403 dbu
+14002 2736 14113 3069 dbf
+333 111 14002 2736 dbu
+14002 2736 14113 2847 dbf
+111 111 14002 2736 dbu
+14002 2986 14113 3069 dbf
+83 111 14002 2986 dbu
+14169 362 14280 862 dbf
+500 111 14169 362 dbu
+14169 751 14280 862 dbf
+111 111 14169 751 dbu
+14169 362 14280 431 dbf
+69 111 14169 362 dbu
+14002 2986 14502 3069 dbf
+83 500 14002 2986 dbu
+14169 362 14502 445 dbf
+83 333 14169 362 dbu
+14391 1681 14502 3069 dbf
+1388 111 14391 1681 dbu
+14391 1681 14502 2792 dbf
+1111 111 14391 1681 dbu
+14391 362 14502 1320 dbf
+958 111 14391 362 dbu
+14391 765 14502 1320 dbf
+555 111 14391 765 dbu
+14613 1417 14724 2792 dbf
+1375 111 14613 1417 dbu
+14613 1681 14724 2792 dbf
+1111 111 14613 1681 dbu
+14613 765 14724 1487 dbf
+722 111 14613 765 dbu
+14613 765 14724 1320 dbf
+555 111 14613 765 dbu
+14613 1417 14724 1487 dbf
+70 111 14613 1417 dbu
+14613 1403 15738 1514 dbf
+111 1125 14613 1403 dbu
+15516 1403 15738 1514 dbf
+111 222 15516 1403 dbu
+15627 2736 15738 3069 dbf
+333 111 15627 2736 dbu
+15627 2736 15738 2847 dbf
+111 111 15627 2736 dbu
+15627 2986 15738 3069 dbf
+83 111 15627 2986 dbu
+15793 362 15904 862 dbf
+500 111 15793 362 dbu
+15793 751 15904 862 dbf
+111 111 15793 751 dbu
+15793 362 15904 431 dbf
+69 111 15793 362 dbu
+15627 2986 16126 3069 dbf
+83 499 15627 2986 dbu
+15793 362 16126 445 dbf
+83 333 15793 362 dbu
+16015 1681 16126 3069 dbf
+1388 111 16015 1681 dbu
+16015 1681 16126 2792 dbf
+1111 111 16015 1681 dbu
+16015 362 16126 1320 dbf
+958 111 16015 362 dbu
+16015 765 16126 1320 dbf
+555 111 16015 765 dbu
+16238 1417 16349 2792 dbf
+1375 111 16238 1417 dbu
+16238 1681 16349 2792 dbf
+1111 111 16238 1681 dbu
+16238 765 16349 1487 dbf
+722 111 16238 765 dbu
+16238 765 16349 1320 dbf
+555 111 16238 765 dbu
+16238 1417 16349 1487 dbf
+70 111 16238 1417 dbu
+16238 1403 17362 1514 dbf
+111 1124 16238 1403 dbu
+17140 1403 17362 1514 dbf
+111 222 17140 1403 dbu
+17251 2736 17362 3069 dbf
+333 111 17251 2736 dbu
+17251 2736 17362 2847 dbf
+111 111 17251 2736 dbu
+17251 2986 17362 3069 dbf
+83 111 17251 2986 dbu
+17418 362 17529 862 dbf
+500 111 17418 362 dbu
+17418 751 17529 862 dbf
+111 111 17418 751 dbu
+17418 362 17529 431 dbf
+69 111 17418 362 dbu
+17251 2986 17751 3069 dbf
+83 500 17251 2986 dbu
+17418 362 17751 445 dbf
+83 333 17418 362 dbu
+17640 1681 17751 3069 dbf
+1388 111 17640 1681 dbu
+17640 1681 17751 2792 dbf
+1111 111 17640 1681 dbu
+17640 362 17751 1320 dbf
+958 111 17640 362 dbu
+17640 765 17751 1320 dbf
+555 111 17640 765 dbu
+17862 1417 17973 2792 dbf
+1375 111 17862 1417 dbu
+17862 1681 17973 2792 dbf
+1111 111 17862 1681 dbu
+17862 765 17973 1487 dbf
+722 111 17862 765 dbu
+17862 765 17973 1320 dbf
+555 111 17862 765 dbu
+17862 1417 17973 1487 dbf
+70 111 17862 1417 dbu
+17862 1403 18986 1514 dbf
+111 1124 17862 1403 dbu
+18764 1403 18986 1514 dbf
+111 222 18764 1403 dbu
+18875 2736 18986 3069 dbf
+333 111 18875 2736 dbu
+18875 2736 18986 2847 dbf
+111 111 18875 2736 dbu
+18875 2986 18986 3069 dbf
+83 111 18875 2986 dbu
+19042 362 19153 862 dbf
+500 111 19042 362 dbu
+19042 751 19153 862 dbf
+111 111 19042 751 dbu
+19042 362 19153 431 dbf
+69 111 19042 362 dbu
+18875 2986 19375 3069 dbf
+83 500 18875 2986 dbu
+19042 362 19375 445 dbf
+83 333 19042 362 dbu
+19264 1681 19375 3069 dbf
+1388 111 19264 1681 dbu
+19264 1681 19375 2792 dbf
+1111 111 19264 1681 dbu
+19264 362 19375 1320 dbf
+958 111 19264 362 dbu
+19264 765 19375 1320 dbf
+555 111 19264 765 dbu
+19486 1417 19597 2792 dbf
+1375 111 19486 1417 dbu
+19486 1681 19597 2792 dbf
+1111 111 19486 1681 dbu
+19486 765 19597 1487 dbf
+722 111 19486 765 dbu
+19486 765 19597 1320 dbf
+555 111 19486 765 dbu
+19486 1417 19597 1487 dbf
+70 111 19486 1417 dbu
+19486 1403 20611 1514 dbf
+111 1125 19486 1403 dbu
+20389 1403 20611 1514 dbf
+111 222 20389 1403 dbu
+20500 2736 20611 3069 dbf
+333 111 20500 2736 dbu
+20500 2736 20611 2847 dbf
+111 111 20500 2736 dbu
+20500 2986 20611 3069 dbf
+83 111 20500 2986 dbu
+20666 362 20777 862 dbf
+500 111 20666 362 dbu
+20666 751 20777 862 dbf
+111 111 20666 751 dbu
+20666 362 20777 431 dbf
+69 111 20666 362 dbu
+20500 2986 20999 3069 dbf
+83 499 20500 2986 dbu
+20666 362 20999 445 dbf
+83 333 20666 362 dbu
+20888 1681 20999 3069 dbf
+1388 111 20888 1681 dbu
+20888 1681 20999 2792 dbf
+1111 111 20888 1681 dbu
+20888 362 20999 1320 dbf
+958 111 20888 362 dbu
+20888 765 20999 1320 dbf
+555 111 20888 765 dbu
+21111 1417 21222 2792 dbf
+1375 111 21111 1417 dbu
+21111 1681 21222 2792 dbf
+1111 111 21111 1681 dbu
+21111 765 21222 1487 dbf
+722 111 21111 765 dbu
+21111 765 21222 1320 dbf
+555 111 21111 765 dbu
+21111 1417 21222 1487 dbf
+70 111 21111 1417 dbu
+21111 1403 22235 1514 dbf
+111 1124 21111 1403 dbu
+22013 1403 22235 1514 dbf
+111 222 22013 1403 dbu
+22124 2736 22235 3069 dbf
+333 111 22124 2736 dbu
+22124 2736 22235 2847 dbf
+111 111 22124 2736 dbu
+22124 2986 22235 3069 dbf
+83 111 22124 2986 dbu
+22291 362 22402 862 dbf
+500 111 22291 362 dbu
+22291 751 22402 862 dbf
+111 111 22291 751 dbu
+22291 362 22402 431 dbf
+69 111 22291 362 dbu
+22124 2986 22624 3069 dbf
+83 500 22124 2986 dbu
+22291 362 22624 445 dbf
+83 333 22291 362 dbu
+22513 1681 22624 3069 dbf
+1388 111 22513 1681 dbu
+22513 1681 22624 2792 dbf
+1111 111 22513 1681 dbu
+22513 362 22624 1320 dbf
+958 111 22513 362 dbu
+22513 765 22624 1320 dbf
+555 111 22513 765 dbu
+22735 1417 22846 2792 dbf
+1375 111 22735 1417 dbu
+22735 1681 22846 2792 dbf
+1111 111 22735 1681 dbu
+22735 765 22846 1487 dbf
+722 111 22735 765 dbu
+22735 765 22846 1320 dbf
+555 111 22735 765 dbu
+22735 1417 22846 1487 dbf
+70 111 22735 1417 dbu
+22735 1403 23859 1514 dbf
+111 1124 22735 1403 dbu
+23637 1403 23859 1514 dbf
+111 222 23637 1403 dbu
+23748 2736 23859 3069 dbf
+333 111 23748 2736 dbu
+23748 2736 23859 2847 dbf
+111 111 23748 2736 dbu
+23748 2986 23859 3069 dbf
+83 111 23748 2986 dbu
+23915 362 24026 862 dbf
+500 111 23915 362 dbu
+23915 751 24026 862 dbf
+111 111 23915 751 dbu
+23915 362 24026 431 dbf
+69 111 23915 362 dbu
+23748 2986 24248 3069 dbf
+83 500 23748 2986 dbu
+23915 362 24248 445 dbf
+83 333 23915 362 dbu
+24137 1681 24248 3069 dbf
+1388 111 24137 1681 dbu
+24137 1681 24248 2792 dbf
+1111 111 24137 1681 dbu
+24137 362 24248 1320 dbf
+958 111 24137 362 dbu
+24137 765 24248 1320 dbf
+555 111 24137 765 dbu
+24359 1417 24470 2792 dbf
+1375 111 24359 1417 dbu
+24359 1681 24470 2792 dbf
+1111 111 24359 1681 dbu
+24359 765 24470 1487 dbf
+722 111 24359 765 dbu
+24359 765 24470 1320 dbf
+555 111 24359 765 dbu
+24359 1417 24470 1487 dbf
+70 111 24359 1417 dbu
+24359 1403 25484 1514 dbf
+111 1125 24359 1403 dbu
+25262 1403 25484 1514 dbf
+111 222 25262 1403 dbu
+25373 2736 25484 3069 dbf
+333 111 25373 2736 dbu
+25373 2736 25484 2847 dbf
+111 111 25373 2736 dbu
+25373 2986 25484 3069 dbf
+83 111 25373 2986 dbu
+25539 362 25650 862 dbf
+500 111 25539 362 dbu
+25539 751 25650 862 dbf
+111 111 25539 751 dbu
+25539 362 25650 431 dbf
+69 111 25539 362 dbu
+25373 2986 25872 3069 dbf
+83 499 25373 2986 dbu
+25539 362 25872 445 dbf
+83 333 25539 362 dbu
+25761 1681 25872 3069 dbf
+1388 111 25761 1681 dbu
+25761 1681 25872 2792 dbf
+1111 111 25761 1681 dbu
+25761 362 25872 1320 dbf
+958 111 25761 362 dbu
+25761 765 25872 1320 dbf
+555 111 25761 765 dbu
+25984 1417 26095 2792 dbf
+1375 111 25984 1417 dbu
+25984 1681 26095 2792 dbf
+1111 111 25984 1681 dbu
+25984 765 26095 1487 dbf
+722 111 25984 765 dbu
+25984 765 26095 1320 dbf
+555 111 25984 765 dbu
+25984 1417 26095 1487 dbf
+70 111 25984 1417 dbu
+25984 1403 27108 1514 dbf
+111 1124 25984 1403 dbu
+26886 1403 27108 1514 dbf
+111 222 26886 1403 dbu
+26997 2736 27108 3069 dbf
+333 111 26997 2736 dbu
+26997 2736 27108 2847 dbf
+111 111 26997 2736 dbu
+26997 2986 27108 3069 dbf
+83 111 26997 2986 dbu
+27164 362 27275 862 dbf
+500 111 27164 362 dbu
+27164 751 27275 862 dbf
+111 111 27164 751 dbu
+27164 362 27275 431 dbf
+69 111 27164 362 dbu
+26997 2986 27497 3069 dbf
+83 500 26997 2986 dbu
+27164 362 27497 445 dbf
+83 333 27164 362 dbu
+27386 1681 27497 3069 dbf
+1388 111 27386 1681 dbu
+27386 1681 27497 2792 dbf
+1111 111 27386 1681 dbu
+27386 362 27497 1320 dbf
+958 111 27386 362 dbu
+27386 765 27497 1320 dbf
+555 111 27386 765 dbu
+27608 1417 27719 2792 dbf
+1375 111 27608 1417 dbu
+27608 1681 27719 2792 dbf
+1111 111 27608 1681 dbu
+27608 765 27719 1487 dbf
+722 111 27608 765 dbu
+27608 765 27719 1320 dbf
+555 111 27608 765 dbu
+27608 1417 27719 1487 dbf
+70 111 27608 1417 dbu
+27608 1403 28732 1514 dbf
+111 1124 27608 1403 dbu
+28510 1403 28732 1514 dbf
+111 222 28510 1403 dbu
+28621 2736 28732 3069 dbf
+333 111 28621 2736 dbu
+28621 2736 28732 2847 dbf
+111 111 28621 2736 dbu
+28621 2986 28732 3069 dbf
+83 111 28621 2986 dbu
+28788 362 28899 862 dbf
+500 111 28788 362 dbu
+28788 751 28899 862 dbf
+111 111 28788 751 dbu
+28788 362 28899 431 dbf
+69 111 28788 362 dbu
+28621 2986 29121 3069 dbf
+83 500 28621 2986 dbu
+28788 362 29121 445 dbf
+83 333 28788 362 dbu
+29010 1681 29121 3069 dbf
+1388 111 29010 1681 dbu
+29010 1681 29121 2792 dbf
+1111 111 29010 1681 dbu
+29010 362 29121 1320 dbf
+958 111 29010 362 dbu
+29010 765 29121 1320 dbf
+555 111 29010 765 dbu
+29232 1417 29343 2792 dbf
+1375 111 29232 1417 dbu
+29232 1681 29343 2792 dbf
+1111 111 29232 1681 dbu
+29232 765 29343 1487 dbf
+722 111 29232 765 dbu
+29232 765 29343 1320 dbf
+555 111 29232 765 dbu
+29232 1417 29343 1487 dbf
+70 111 29232 1417 dbu
+29232 1403 30357 1514 dbf
+111 1125 29232 1403 dbu
+30135 1403 30357 1514 dbf
+111 222 30135 1403 dbu
+30246 2736 30357 3069 dbf
+333 111 30246 2736 dbu
+30246 2736 30357 2847 dbf
+111 111 30246 2736 dbu
+30246 2986 30357 3069 dbf
+83 111 30246 2986 dbu
+30412 362 30523 862 dbf
+500 111 30412 362 dbu
+30412 751 30523 862 dbf
+111 111 30412 751 dbu
+30412 362 30523 431 dbf
+69 111 30412 362 dbu
+30246 2986 30745 3069 dbf
+83 499 30246 2986 dbu
+30412 362 30745 445 dbf
+83 333 30412 362 dbu
+30634 1681 30745 3069 dbf
+1388 111 30634 1681 dbu
+30634 1681 30745 2792 dbf
+1111 111 30634 1681 dbu
+30634 362 30745 1320 dbf
+958 111 30634 362 dbu
+30634 765 30745 1320 dbf
+555 111 30634 765 dbu
+30857 1417 30968 2792 dbf
+1375 111 30857 1417 dbu
+30857 1681 30968 2792 dbf
+1111 111 30857 1681 dbu
+30857 765 30968 1487 dbf
+722 111 30857 765 dbu
+30857 765 30968 1320 dbf
+555 111 30857 765 dbu
+30857 1417 30968 1487 dbf
+70 111 30857 1417 dbu
+30857 1403 31981 1514 dbf
+111 1124 30857 1403 dbu
+31759 1403 31981 1514 dbf
+111 222 31759 1403 dbu
+31870 2736 31981 3069 dbf
+333 111 31870 2736 dbu
+31870 2736 31981 2847 dbf
+111 111 31870 2736 dbu
+31870 2986 31981 3069 dbf
+83 111 31870 2986 dbu
+32037 362 32148 862 dbf
+500 111 32037 362 dbu
+32037 751 32148 862 dbf
+111 111 32037 751 dbu
+32037 362 32148 431 dbf
+69 111 32037 362 dbu
+31870 2986 32370 3069 dbf
+83 500 31870 2986 dbu
+32037 362 32370 445 dbf
+83 333 32037 362 dbu
+32259 1681 32370 3069 dbf
+1388 111 32259 1681 dbu
+32259 1681 32370 2792 dbf
+1111 111 32259 1681 dbu
+32259 362 32370 1320 dbf
+958 111 32259 362 dbu
+32259 765 32370 1320 dbf
+555 111 32259 765 dbu
+32481 1417 32592 2792 dbf
+1375 111 32481 1417 dbu
+32481 1681 32592 2792 dbf
+1111 111 32481 1681 dbu
+32481 765 32592 1487 dbf
+722 111 32481 765 dbu
+32481 765 32592 1320 dbf
+555 111 32481 765 dbu
+32481 1417 32592 1487 dbf
+70 111 32481 1417 dbu
+32481 1403 33605 1514 dbf
+111 1124 32481 1403 dbu
+33383 1403 33605 1514 dbf
+111 222 33383 1403 dbu
+33494 2736 33605 3069 dbf
+333 111 33494 2736 dbu
+33494 2736 33605 2847 dbf
+111 111 33494 2736 dbu
+33494 2986 33605 3069 dbf
+83 111 33494 2986 dbu
+33661 362 33772 862 dbf
+500 111 33661 362 dbu
+33661 751 33772 862 dbf
+111 111 33661 751 dbu
+33661 362 33772 431 dbf
+69 111 33661 362 dbu
+33494 2986 33994 3069 dbf
+83 500 33494 2986 dbu
+33661 362 33994 445 dbf
+83 333 33661 362 dbu
+33883 1681 33994 3069 dbf
+1388 111 33883 1681 dbu
+33883 1681 33994 2792 dbf
+1111 111 33883 1681 dbu
+33883 362 33994 1320 dbf
+958 111 33883 362 dbu
+33883 765 33994 1320 dbf
+555 111 33883 765 dbu
+34105 1417 34216 2792 dbf
+1375 111 34105 1417 dbu
+34105 1681 34216 2792 dbf
+1111 111 34105 1681 dbu
+34105 765 34216 1487 dbf
+722 111 34105 765 dbu
+34105 765 34216 1320 dbf
+555 111 34105 765 dbu
+34105 1417 34216 1487 dbf
+70 111 34105 1417 dbu
+34105 1403 35230 1514 dbf
+111 1125 34105 1403 dbu
+35008 1403 35230 1514 dbf
+111 222 35008 1403 dbu
+35119 2736 35230 3069 dbf
+333 111 35119 2736 dbu
+35119 2736 35230 2847 dbf
+111 111 35119 2736 dbu
+35119 2986 35230 3069 dbf
+83 111 35119 2986 dbu
+35285 362 35396 862 dbf
+500 111 35285 362 dbu
+35285 751 35396 862 dbf
+111 111 35285 751 dbu
+35285 362 35396 431 dbf
+69 111 35285 362 dbu
+35119 2986 35618 3069 dbf
+83 499 35119 2986 dbu
+35285 362 35618 445 dbf
+83 333 35285 362 dbu
+35507 1681 35618 3069 dbf
+1388 111 35507 1681 dbu
+35507 1681 35618 2792 dbf
+1111 111 35507 1681 dbu
+35507 362 35618 1320 dbf
+958 111 35507 362 dbu
+35507 765 35618 1320 dbf
+555 111 35507 765 dbu
+35730 1417 35841 2792 dbf
+1375 111 35730 1417 dbu
+35730 1681 35841 2792 dbf
+1111 111 35730 1681 dbu
+35730 765 35841 1487 dbf
+722 111 35730 765 dbu
+35730 765 35841 1320 dbf
+555 111 35730 765 dbu
+35730 1417 35841 1487 dbf
+70 111 35730 1417 dbu
+35730 1403 36854 1514 dbf
+111 1124 35730 1403 dbu
+36632 1403 36854 1514 dbf
+111 222 36632 1403 dbu
+36743 2736 36854 3069 dbf
+333 111 36743 2736 dbu
+36743 2736 36854 2847 dbf
+111 111 36743 2736 dbu
+36743 2986 36854 3069 dbf
+83 111 36743 2986 dbu
+36910 362 37021 862 dbf
+500 111 36910 362 dbu
+36910 751 37021 862 dbf
+111 111 36910 751 dbu
+36910 362 37021 431 dbf
+69 111 36910 362 dbu
+36743 2986 37243 3069 dbf
+83 500 36743 2986 dbu
+36910 362 37243 445 dbf
+83 333 36910 362 dbu
+37132 1681 37243 3069 dbf
+1388 111 37132 1681 dbu
+37132 1681 37243 2792 dbf
+1111 111 37132 1681 dbu
+37132 362 37243 1320 dbf
+958 111 37132 362 dbu
+37132 765 37243 1320 dbf
+555 111 37132 765 dbu
+37354 1417 37465 2792 dbf
+1375 111 37354 1417 dbu
+37354 1681 37465 2792 dbf
+1111 111 37354 1681 dbu
+37354 765 37465 1487 dbf
+722 111 37354 765 dbu
+37354 765 37465 1320 dbf
+555 111 37354 765 dbu
+37354 1417 37465 1487 dbf
+70 111 37354 1417 dbu
+37354 1403 38478 1514 dbf
+111 1124 37354 1403 dbu
+38256 1403 38478 1514 dbf
+111 222 38256 1403 dbu
+38367 2736 38478 3069 dbf
+333 111 38367 2736 dbu
+38367 2736 38478 2847 dbf
+111 111 38367 2736 dbu
+38367 2986 38478 3069 dbf
+83 111 38367 2986 dbu
+38534 362 38645 862 dbf
+500 111 38534 362 dbu
+38534 751 38645 862 dbf
+111 111 38534 751 dbu
+38534 362 38645 431 dbf
+69 111 38534 362 dbu
+38367 2986 38867 3069 dbf
+83 500 38367 2986 dbu
+38534 362 38867 445 dbf
+83 333 38534 362 dbu
+38756 1681 38867 3069 dbf
+1388 111 38756 1681 dbu
+38756 1681 38867 2792 dbf
+1111 111 38756 1681 dbu
+38756 362 38867 1320 dbf
+958 111 38756 362 dbu
+38756 765 38867 1320 dbf
+555 111 38756 765 dbu
+38978 1417 39089 2792 dbf
+1375 111 38978 1417 dbu
+38978 1681 39089 2792 dbf
+1111 111 38978 1681 dbu
+38978 765 39089 1487 dbf
+722 111 38978 765 dbu
+38978 765 39089 1320 dbf
+555 111 38978 765 dbu
+38978 1417 39089 1487 dbf
+70 111 38978 1417 dbu
+38978 1403 40103 1514 dbf
+111 1125 38978 1403 dbu
+39881 1403 40103 1514 dbf
+111 222 39881 1403 dbu
+39992 2736 40103 3069 dbf
+333 111 39992 2736 dbu
+39992 2736 40103 2847 dbf
+111 111 39992 2736 dbu
+39992 2986 40103 3069 dbf
+83 111 39992 2986 dbu
+40158 362 40269 862 dbf
+500 111 40158 362 dbu
+40158 751 40269 862 dbf
+111 111 40158 751 dbu
+40158 362 40269 431 dbf
+69 111 40158 362 dbu
+39992 2986 40491 3069 dbf
+83 499 39992 2986 dbu
+40158 362 40491 445 dbf
+83 333 40158 362 dbu
+40380 1681 40491 3069 dbf
+1388 111 40380 1681 dbu
+40380 1681 40491 2792 dbf
+1111 111 40380 1681 dbu
+40380 362 40491 1320 dbf
+958 111 40380 362 dbu
+40380 765 40491 1320 dbf
+555 111 40380 765 dbu
+40603 1417 40714 2792 dbf
+1375 111 40603 1417 dbu
+40603 1681 40714 2792 dbf
+1111 111 40603 1681 dbu
+40603 765 40714 1487 dbf
+722 111 40603 765 dbu
+40603 765 40714 1320 dbf
+555 111 40603 765 dbu
+40603 1417 40714 1487 dbf
+70 111 40603 1417 dbu
+40603 1403 41727 1514 dbf
+111 1124 40603 1403 dbu
+41505 1403 41727 1514 dbf
+111 222 41505 1403 dbu
+41616 2736 41727 3069 dbf
+333 111 41616 2736 dbu
+41616 2736 41727 2847 dbf
+111 111 41616 2736 dbu
+41616 2986 41727 3069 dbf
+83 111 41616 2986 dbu
+41783 362 41894 862 dbf
+500 111 41783 362 dbu
+41783 751 41894 862 dbf
+111 111 41783 751 dbu
+41783 362 41894 431 dbf
+69 111 41783 362 dbu
+41616 2986 42116 3069 dbf
+83 500 41616 2986 dbu
+41783 362 42116 445 dbf
+83 333 41783 362 dbu
+42005 1681 42116 3069 dbf
+1388 111 42005 1681 dbu
+42005 1681 42116 2792 dbf
+1111 111 42005 1681 dbu
+42005 362 42116 1320 dbf
+958 111 42005 362 dbu
+42005 765 42116 1320 dbf
+555 111 42005 765 dbu
+42227 1417 42338 2792 dbf
+1375 111 42227 1417 dbu
+42227 1681 42338 2792 dbf
+1111 111 42227 1681 dbu
+42227 765 42338 1487 dbf
+722 111 42227 765 dbu
+42227 765 42338 1320 dbf
+555 111 42227 765 dbu
+42227 1417 42338 1487 dbf
+70 111 42227 1417 dbu
+42227 1403 43351 1514 dbf
+111 1124 42227 1403 dbu
+43129 1403 43351 1514 dbf
+111 222 43129 1403 dbu
+43240 2736 43351 3069 dbf
+333 111 43240 2736 dbu
+43240 2736 43351 2847 dbf
+111 111 43240 2736 dbu
+43240 2986 43351 3069 dbf
+83 111 43240 2986 dbu
+43407 362 43518 862 dbf
+500 111 43407 362 dbu
+43407 751 43518 862 dbf
+111 111 43407 751 dbu
+43407 362 43518 431 dbf
+69 111 43407 362 dbu
+43240 2986 43740 3069 dbf
+83 500 43240 2986 dbu
+43407 362 43740 445 dbf
+83 333 43407 362 dbu
+43629 1681 43740 3069 dbf
+1388 111 43629 1681 dbu
+43629 1681 43740 2792 dbf
+1111 111 43629 1681 dbu
+43629 362 43740 1320 dbf
+958 111 43629 362 dbu
+43629 765 43740 1320 dbf
+555 111 43629 765 dbu
+43851 1417 43962 2792 dbf
+1375 111 43851 1417 dbu
+43851 1681 43962 2792 dbf
+1111 111 43851 1681 dbu
+43851 765 43962 1487 dbf
+722 111 43851 765 dbu
+43851 765 43962 1320 dbf
+555 111 43851 765 dbu
+43851 1417 43962 1487 dbf
+70 111 43851 1417 dbu
+43851 1403 44976 1514 dbf
+111 1125 43851 1403 dbu
+44754 1403 44976 1514 dbf
+111 222 44754 1403 dbu
+44865 2736 44976 3069 dbf
+333 111 44865 2736 dbu
+44865 2736 44976 2847 dbf
+111 111 44865 2736 dbu
+44865 2986 44976 3069 dbf
+83 111 44865 2986 dbu
+45031 362 45142 862 dbf
+500 111 45031 362 dbu
+45031 751 45142 862 dbf
+111 111 45031 751 dbu
+45031 362 45142 431 dbf
+69 111 45031 362 dbu
+44865 2986 45364 3069 dbf
+83 499 44865 2986 dbu
+45031 362 45364 445 dbf
+83 333 45031 362 dbu
+45253 1681 45364 3069 dbf
+1388 111 45253 1681 dbu
+45253 1681 45364 2792 dbf
+1111 111 45253 1681 dbu
+45253 362 45364 1320 dbf
+958 111 45253 362 dbu
+45253 765 45364 1320 dbf
+555 111 45253 765 dbu
+45476 1417 45587 2792 dbf
+1375 111 45476 1417 dbu
+45476 1681 45587 2792 dbf
+1111 111 45476 1681 dbu
+45476 765 45587 1487 dbf
+722 111 45476 765 dbu
+45476 765 45587 1320 dbf
+555 111 45476 765 dbu
+45476 1417 45587 1487 dbf
+70 111 45476 1417 dbu
+45476 1403 46600 1514 dbf
+111 1124 45476 1403 dbu
+46378 1403 46600 1514 dbf
+111 222 46378 1403 dbu
+46489 2736 46600 3069 dbf
+333 111 46489 2736 dbu
+46489 2736 46600 2847 dbf
+111 111 46489 2736 dbu
+46489 2986 46600 3069 dbf
+83 111 46489 2986 dbu
+46656 362 46767 862 dbf
+500 111 46656 362 dbu
+46656 751 46767 862 dbf
+111 111 46656 751 dbu
+46656 362 46767 431 dbf
+69 111 46656 362 dbu
+46489 2986 46989 3069 dbf
+83 500 46489 2986 dbu
+46656 362 46989 445 dbf
+83 333 46656 362 dbu
+46878 1681 46989 3069 dbf
+1388 111 46878 1681 dbu
+46878 1681 46989 2792 dbf
+1111 111 46878 1681 dbu
+46878 362 46989 1320 dbf
+958 111 46878 362 dbu
+46878 765 46989 1320 dbf
+555 111 46878 765 dbu
+47100 1417 47211 2792 dbf
+1375 111 47100 1417 dbu
+47100 1681 47211 2792 dbf
+1111 111 47100 1681 dbu
+47100 765 47211 1487 dbf
+722 111 47100 765 dbu
+47100 765 47211 1320 dbf
+555 111 47100 765 dbu
+47100 1417 47211 1487 dbf
+70 111 47100 1417 dbu
+47100 1403 48224 1514 dbf
+111 1124 47100 1403 dbu
+48002 1403 48224 1514 dbf
+111 222 48002 1403 dbu
+48113 2736 48224 3069 dbf
+333 111 48113 2736 dbu
+48113 2736 48224 2847 dbf
+111 111 48113 2736 dbu
+48113 2986 48224 3069 dbf
+83 111 48113 2986 dbu
+48280 362 48391 862 dbf
+500 111 48280 362 dbu
+48280 751 48391 862 dbf
+111 111 48280 751 dbu
+48280 362 48391 431 dbf
+69 111 48280 362 dbu
+48113 2986 48613 3069 dbf
+83 500 48113 2986 dbu
+48280 362 48613 445 dbf
+83 333 48280 362 dbu
+48502 1681 48613 3069 dbf
+1388 111 48502 1681 dbu
+48502 1681 48613 2792 dbf
+1111 111 48502 1681 dbu
+48502 362 48613 1320 dbf
+958 111 48502 362 dbu
+48502 765 48613 1320 dbf
+555 111 48502 765 dbu
+48724 1417 48835 2792 dbf
+1375 111 48724 1417 dbu
+48724 1681 48835 2792 dbf
+1111 111 48724 1681 dbu
+48724 765 48835 1487 dbf
+722 111 48724 765 dbu
+48724 765 48835 1320 dbf
+555 111 48724 765 dbu
+48724 1417 48835 1487 dbf
+70 111 48724 1417 dbu
+48724 1403 49849 1514 dbf
+111 1125 48724 1403 dbu
+49627 1403 49849 1514 dbf
+111 222 49627 1403 dbu
+49738 2736 49849 3069 dbf
+333 111 49738 2736 dbu
+49738 2736 49849 2847 dbf
+111 111 49738 2736 dbu
+49738 2986 49849 3069 dbf
+83 111 49738 2986 dbu
+49904 362 50015 862 dbf
+500 111 49904 362 dbu
+49904 751 50015 862 dbf
+111 111 49904 751 dbu
+49904 362 50015 431 dbf
+69 111 49904 362 dbu
+49738 2986 50237 3069 dbf
+83 499 49738 2986 dbu
+49904 362 50237 445 dbf
+83 333 49904 362 dbu
+50126 1681 50237 3069 dbf
+1388 111 50126 1681 dbu
+50126 1681 50237 2792 dbf
+1111 111 50126 1681 dbu
+50126 362 50237 1320 dbf
+958 111 50126 362 dbu
+50126 765 50237 1320 dbf
+555 111 50126 765 dbu
+50349 1417 50460 2792 dbf
+1375 111 50349 1417 dbu
+50349 1681 50460 2792 dbf
+1111 111 50349 1681 dbu
+50349 765 50460 1487 dbf
+722 111 50349 765 dbu
+50349 765 50460 1320 dbf
+555 111 50349 765 dbu
+50349 1417 50460 1487 dbf
+70 111 50349 1417 dbu
+50349 1403 51473 1514 dbf
+111 1124 50349 1403 dbu
+51251 1403 51473 1514 dbf
+111 222 51251 1403 dbu
+5 fds
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 <0000> fdf
+5 <1111> fdf
+5 <0000> fdf
+5 <4444> fdf
+5 fde
+5 sfp
+1000 0 1000 slc
+1000 0 1000 sfc
+952 1389 51473 1528 dbf
+139 50521 952 1389 dbu
+952 1389 1091 1528 dbf
+139 139 952 1389 dbu
+51334 1389 51473 1528 dbf
+139 139 51334 1389 dbu
+502 149 149 slc
+0 0 0 sfc
+1022 2764 1077 2819 dbs
+1188 779 1244 834 dbs
+1410 1709 1466 1764 dbs
+1410 1875 1466 1931 dbs
+1410 2042 1466 2097 dbs
+1410 2208 1466 2264 dbs
+1410 2375 1466 2431 dbs
+1410 2542 1466 2597 dbs
+1410 792 1466 848 dbs
+1410 959 1466 1015 dbs
+1410 1126 1466 1181 dbs
+1632 2542 1688 2597 dbs
+1632 2375 1688 2431 dbs
+1632 2208 1688 2264 dbs
+1632 2042 1688 2097 dbs
+1632 1875 1688 1931 dbs
+1632 1709 1688 1764 dbs
+1632 792 1688 848 dbs
+1632 959 1688 1015 dbs
+1632 1126 1688 1181 dbs
+2660 2764 2715 2819 dbs
+2826 779 2882 834 dbs
+3049 1709 3104 1764 dbs
+3049 1875 3104 1931 dbs
+3049 2042 3104 2097 dbs
+3049 2208 3104 2264 dbs
+3049 2375 3104 2431 dbs
+3049 2542 3104 2597 dbs
+3049 792 3104 848 dbs
+3049 959 3104 1015 dbs
+3049 1126 3104 1181 dbs
+3271 2542 3326 2597 dbs
+3271 2375 3326 2431 dbs
+3271 2208 3326 2264 dbs
+3271 2042 3326 2097 dbs
+3271 1875 3326 1931 dbs
+3271 1709 3326 1764 dbs
+3271 792 3326 848 dbs
+3271 959 3326 1015 dbs
+3271 1126 3326 1181 dbs
+4284 2764 4340 2819 dbs
+4451 779 4506 834 dbs
+4673 1709 4728 1764 dbs
+4673 1875 4728 1931 dbs
+4673 2042 4728 2097 dbs
+4673 2208 4728 2264 dbs
+4673 2375 4728 2431 dbs
+4673 2542 4728 2597 dbs
+4673 792 4728 848 dbs
+4673 959 4728 1015 dbs
+4673 1126 4728 1181 dbs
+4895 2542 4951 2597 dbs
+4895 2375 4951 2431 dbs
+4895 2208 4951 2264 dbs
+4895 2042 4951 2097 dbs
+4895 1875 4951 1931 dbs
+4895 1709 4951 1764 dbs
+4895 792 4951 848 dbs
+4895 959 4951 1015 dbs
+4895 1126 4951 1181 dbs
+5908 2764 5964 2819 dbs
+6075 779 6131 834 dbs
+6297 1709 6353 1764 dbs
+6297 1875 6353 1931 dbs
+6297 2042 6353 2097 dbs
+6297 2208 6353 2264 dbs
+6297 2375 6353 2431 dbs
+6297 2542 6353 2597 dbs
+6297 792 6353 848 dbs
+6297 959 6353 1015 dbs
+6297 1126 6353 1181 dbs
+6519 2542 6575 2597 dbs
+6519 2375 6575 2431 dbs
+6519 2208 6575 2264 dbs
+6519 2042 6575 2097 dbs
+6519 1875 6575 1931 dbs
+6519 1709 6575 1764 dbs
+6519 792 6575 848 dbs
+6519 959 6575 1015 dbs
+6519 1126 6575 1181 dbs
+7533 2764 7588 2819 dbs
+7699 779 7755 834 dbs
+7922 1709 7977 1764 dbs
+7922 1875 7977 1931 dbs
+7922 2042 7977 2097 dbs
+7922 2208 7977 2264 dbs
+7922 2375 7977 2431 dbs
+7922 2542 7977 2597 dbs
+7922 792 7977 848 dbs
+7922 959 7977 1015 dbs
+7922 1126 7977 1181 dbs
+8144 2542 8199 2597 dbs
+8144 2375 8199 2431 dbs
+8144 2208 8199 2264 dbs
+8144 2042 8199 2097 dbs
+8144 1875 8199 1931 dbs
+8144 1709 8199 1764 dbs
+8144 792 8199 848 dbs
+8144 959 8199 1015 dbs
+8144 1126 8199 1181 dbs
+9157 2764 9213 2819 dbs
+9324 779 9379 834 dbs
+9546 1709 9601 1764 dbs
+9546 1875 9601 1931 dbs
+9546 2042 9601 2097 dbs
+9546 2208 9601 2264 dbs
+9546 2375 9601 2431 dbs
+9546 2542 9601 2597 dbs
+9546 792 9601 848 dbs
+9546 959 9601 1015 dbs
+9546 1126 9601 1181 dbs
+9768 2542 9824 2597 dbs
+9768 2375 9824 2431 dbs
+9768 2208 9824 2264 dbs
+9768 2042 9824 2097 dbs
+9768 1875 9824 1931 dbs
+9768 1709 9824 1764 dbs
+9768 792 9824 848 dbs
+9768 959 9824 1015 dbs
+9768 1126 9824 1181 dbs
+10781 2764 10837 2819 dbs
+10948 779 11004 834 dbs
+11170 1709 11226 1764 dbs
+11170 1875 11226 1931 dbs
+11170 2042 11226 2097 dbs
+11170 2208 11226 2264 dbs
+11170 2375 11226 2431 dbs
+11170 2542 11226 2597 dbs
+11170 792 11226 848 dbs
+11170 959 11226 1015 dbs
+11170 1126 11226 1181 dbs
+11392 2542 11448 2597 dbs
+11392 2375 11448 2431 dbs
+11392 2208 11448 2264 dbs
+11392 2042 11448 2097 dbs
+11392 1875 11448 1931 dbs
+11392 1709 11448 1764 dbs
+11392 792 11448 848 dbs
+11392 959 11448 1015 dbs
+11392 1126 11448 1181 dbs
+12406 2764 12461 2819 dbs
+12572 779 12628 834 dbs
+12795 1709 12850 1764 dbs
+12795 1875 12850 1931 dbs
+12795 2042 12850 2097 dbs
+12795 2208 12850 2264 dbs
+12795 2375 12850 2431 dbs
+12795 2542 12850 2597 dbs
+12795 792 12850 848 dbs
+12795 959 12850 1015 dbs
+12795 1126 12850 1181 dbs
+13017 2542 13072 2597 dbs
+13017 2375 13072 2431 dbs
+13017 2208 13072 2264 dbs
+13017 2042 13072 2097 dbs
+13017 1875 13072 1931 dbs
+13017 1709 13072 1764 dbs
+13017 792 13072 848 dbs
+13017 959 13072 1015 dbs
+13017 1126 13072 1181 dbs
+14030 2764 14086 2819 dbs
+14197 779 14252 834 dbs
+14419 1709 14474 1764 dbs
+14419 1875 14474 1931 dbs
+14419 2042 14474 2097 dbs
+14419 2208 14474 2264 dbs
+14419 2375 14474 2431 dbs
+14419 2542 14474 2597 dbs
+14419 792 14474 848 dbs
+14419 959 14474 1015 dbs
+14419 1126 14474 1181 dbs
+14641 2542 14697 2597 dbs
+14641 2375 14697 2431 dbs
+14641 2208 14697 2264 dbs
+14641 2042 14697 2097 dbs
+14641 1875 14697 1931 dbs
+14641 1709 14697 1764 dbs
+14641 792 14697 848 dbs
+14641 959 14697 1015 dbs
+14641 1126 14697 1181 dbs
+15654 2764 15710 2819 dbs
+15821 779 15877 834 dbs
+16043 1709 16099 1764 dbs
+16043 1875 16099 1931 dbs
+16043 2042 16099 2097 dbs
+16043 2208 16099 2264 dbs
+16043 2375 16099 2431 dbs
+16043 2542 16099 2597 dbs
+16043 792 16099 848 dbs
+16043 959 16099 1015 dbs
+16043 1126 16099 1181 dbs
+16265 2542 16321 2597 dbs
+16265 2375 16321 2431 dbs
+16265 2208 16321 2264 dbs
+16265 2042 16321 2097 dbs
+16265 1875 16321 1931 dbs
+16265 1709 16321 1764 dbs
+16265 792 16321 848 dbs
+16265 959 16321 1015 dbs
+16265 1126 16321 1181 dbs
+17279 2764 17334 2819 dbs
+17445 779 17501 834 dbs
+17668 1709 17723 1764 dbs
+17668 1875 17723 1931 dbs
+17668 2042 17723 2097 dbs
+17668 2208 17723 2264 dbs
+17668 2375 17723 2431 dbs
+17668 2542 17723 2597 dbs
+17668 792 17723 848 dbs
+17668 959 17723 1015 dbs
+17668 1126 17723 1181 dbs
+17890 2542 17945 2597 dbs
+17890 2375 17945 2431 dbs
+17890 2208 17945 2264 dbs
+17890 2042 17945 2097 dbs
+17890 1875 17945 1931 dbs
+17890 1709 17945 1764 dbs
+17890 792 17945 848 dbs
+17890 959 17945 1015 dbs
+17890 1126 17945 1181 dbs
+18903 2764 18959 2819 dbs
+19070 779 19125 834 dbs
+19292 1709 19347 1764 dbs
+19292 1875 19347 1931 dbs
+19292 2042 19347 2097 dbs
+19292 2208 19347 2264 dbs
+19292 2375 19347 2431 dbs
+19292 2542 19347 2597 dbs
+19292 792 19347 848 dbs
+19292 959 19347 1015 dbs
+19292 1126 19347 1181 dbs
+19514 2542 19570 2597 dbs
+19514 2375 19570 2431 dbs
+19514 2208 19570 2264 dbs
+19514 2042 19570 2097 dbs
+19514 1875 19570 1931 dbs
+19514 1709 19570 1764 dbs
+19514 792 19570 848 dbs
+19514 959 19570 1015 dbs
+19514 1126 19570 1181 dbs
+20527 2764 20583 2819 dbs
+20694 779 20750 834 dbs
+20916 1709 20972 1764 dbs
+20916 1875 20972 1931 dbs
+20916 2042 20972 2097 dbs
+20916 2208 20972 2264 dbs
+20916 2375 20972 2431 dbs
+20916 2542 20972 2597 dbs
+20916 792 20972 848 dbs
+20916 959 20972 1015 dbs
+20916 1126 20972 1181 dbs
+21138 2542 21194 2597 dbs
+21138 2375 21194 2431 dbs
+21138 2208 21194 2264 dbs
+21138 2042 21194 2097 dbs
+21138 1875 21194 1931 dbs
+21138 1709 21194 1764 dbs
+21138 792 21194 848 dbs
+21138 959 21194 1015 dbs
+21138 1126 21194 1181 dbs
+22152 2764 22207 2819 dbs
+22318 779 22374 834 dbs
+22541 1709 22596 1764 dbs
+22541 1875 22596 1931 dbs
+22541 2042 22596 2097 dbs
+22541 2208 22596 2264 dbs
+22541 2375 22596 2431 dbs
+22541 2542 22596 2597 dbs
+22541 792 22596 848 dbs
+22541 959 22596 1015 dbs
+22541 1126 22596 1181 dbs
+22763 2542 22818 2597 dbs
+22763 2375 22818 2431 dbs
+22763 2208 22818 2264 dbs
+22763 2042 22818 2097 dbs
+22763 1875 22818 1931 dbs
+22763 1709 22818 1764 dbs
+22763 792 22818 848 dbs
+22763 959 22818 1015 dbs
+22763 1126 22818 1181 dbs
+23776 2764 23832 2819 dbs
+23943 779 23998 834 dbs
+24165 1709 24220 1764 dbs
+24165 1875 24220 1931 dbs
+24165 2042 24220 2097 dbs
+24165 2208 24220 2264 dbs
+24165 2375 24220 2431 dbs
+24165 2542 24220 2597 dbs
+24165 792 24220 848 dbs
+24165 959 24220 1015 dbs
+24165 1126 24220 1181 dbs
+24387 2542 24443 2597 dbs
+24387 2375 24443 2431 dbs
+24387 2208 24443 2264 dbs
+24387 2042 24443 2097 dbs
+24387 1875 24443 1931 dbs
+24387 1709 24443 1764 dbs
+24387 792 24443 848 dbs
+24387 959 24443 1015 dbs
+24387 1126 24443 1181 dbs
+25400 2764 25456 2819 dbs
+25567 779 25623 834 dbs
+25789 1709 25845 1764 dbs
+25789 1875 25845 1931 dbs
+25789 2042 25845 2097 dbs
+25789 2208 25845 2264 dbs
+25789 2375 25845 2431 dbs
+25789 2542 25845 2597 dbs
+25789 792 25845 848 dbs
+25789 959 25845 1015 dbs
+25789 1126 25845 1181 dbs
+26011 2542 26067 2597 dbs
+26011 2375 26067 2431 dbs
+26011 2208 26067 2264 dbs
+26011 2042 26067 2097 dbs
+26011 1875 26067 1931 dbs
+26011 1709 26067 1764 dbs
+26011 792 26067 848 dbs
+26011 959 26067 1015 dbs
+26011 1126 26067 1181 dbs
+27025 2764 27080 2819 dbs
+27191 779 27247 834 dbs
+27414 1709 27469 1764 dbs
+27414 1875 27469 1931 dbs
+27414 2042 27469 2097 dbs
+27414 2208 27469 2264 dbs
+27414 2375 27469 2431 dbs
+27414 2542 27469 2597 dbs
+27414 792 27469 848 dbs
+27414 959 27469 1015 dbs
+27414 1126 27469 1181 dbs
+27636 2542 27691 2597 dbs
+27636 2375 27691 2431 dbs
+27636 2208 27691 2264 dbs
+27636 2042 27691 2097 dbs
+27636 1875 27691 1931 dbs
+27636 1709 27691 1764 dbs
+27636 792 27691 848 dbs
+27636 959 27691 1015 dbs
+27636 1126 27691 1181 dbs
+28649 2764 28705 2819 dbs
+28816 779 28871 834 dbs
+29038 1709 29093 1764 dbs
+29038 1875 29093 1931 dbs
+29038 2042 29093 2097 dbs
+29038 2208 29093 2264 dbs
+29038 2375 29093 2431 dbs
+29038 2542 29093 2597 dbs
+29038 792 29093 848 dbs
+29038 959 29093 1015 dbs
+29038 1126 29093 1181 dbs
+29260 2542 29316 2597 dbs
+29260 2375 29316 2431 dbs
+29260 2208 29316 2264 dbs
+29260 2042 29316 2097 dbs
+29260 1875 29316 1931 dbs
+29260 1709 29316 1764 dbs
+29260 792 29316 848 dbs
+29260 959 29316 1015 dbs
+29260 1126 29316 1181 dbs
+30273 2764 30329 2819 dbs
+30440 779 30496 834 dbs
+30662 1709 30718 1764 dbs
+30662 1875 30718 1931 dbs
+30662 2042 30718 2097 dbs
+30662 2208 30718 2264 dbs
+30662 2375 30718 2431 dbs
+30662 2542 30718 2597 dbs
+30662 792 30718 848 dbs
+30662 959 30718 1015 dbs
+30662 1126 30718 1181 dbs
+30884 2542 30940 2597 dbs
+30884 2375 30940 2431 dbs
+30884 2208 30940 2264 dbs
+30884 2042 30940 2097 dbs
+30884 1875 30940 1931 dbs
+30884 1709 30940 1764 dbs
+30884 792 30940 848 dbs
+30884 959 30940 1015 dbs
+30884 1126 30940 1181 dbs
+31898 2764 31953 2819 dbs
+32064 779 32120 834 dbs
+32287 1709 32342 1764 dbs
+32287 1875 32342 1931 dbs
+32287 2042 32342 2097 dbs
+32287 2208 32342 2264 dbs
+32287 2375 32342 2431 dbs
+32287 2542 32342 2597 dbs
+32287 792 32342 848 dbs
+32287 959 32342 1015 dbs
+32287 1126 32342 1181 dbs
+32509 2542 32564 2597 dbs
+32509 2375 32564 2431 dbs
+32509 2208 32564 2264 dbs
+32509 2042 32564 2097 dbs
+32509 1875 32564 1931 dbs
+32509 1709 32564 1764 dbs
+32509 792 32564 848 dbs
+32509 959 32564 1015 dbs
+32509 1126 32564 1181 dbs
+33522 2764 33578 2819 dbs
+33689 779 33744 834 dbs
+33911 1709 33966 1764 dbs
+33911 1875 33966 1931 dbs
+33911 2042 33966 2097 dbs
+33911 2208 33966 2264 dbs
+33911 2375 33966 2431 dbs
+33911 2542 33966 2597 dbs
+33911 792 33966 848 dbs
+33911 959 33966 1015 dbs
+33911 1126 33966 1181 dbs
+34133 2542 34189 2597 dbs
+34133 2375 34189 2431 dbs
+34133 2208 34189 2264 dbs
+34133 2042 34189 2097 dbs
+34133 1875 34189 1931 dbs
+34133 1709 34189 1764 dbs
+34133 792 34189 848 dbs
+34133 959 34189 1015 dbs
+34133 1126 34189 1181 dbs
+35146 2764 35202 2819 dbs
+35313 779 35369 834 dbs
+35535 1709 35591 1764 dbs
+35535 1875 35591 1931 dbs
+35535 2042 35591 2097 dbs
+35535 2208 35591 2264 dbs
+35535 2375 35591 2431 dbs
+35535 2542 35591 2597 dbs
+35535 792 35591 848 dbs
+35535 959 35591 1015 dbs
+35535 1126 35591 1181 dbs
+35757 2542 35813 2597 dbs
+35757 2375 35813 2431 dbs
+35757 2208 35813 2264 dbs
+35757 2042 35813 2097 dbs
+35757 1875 35813 1931 dbs
+35757 1709 35813 1764 dbs
+35757 792 35813 848 dbs
+35757 959 35813 1015 dbs
+35757 1126 35813 1181 dbs
+36771 2764 36826 2819 dbs
+36937 779 36993 834 dbs
+37160 1709 37215 1764 dbs
+37160 1875 37215 1931 dbs
+37160 2042 37215 2097 dbs
+37160 2208 37215 2264 dbs
+37160 2375 37215 2431 dbs
+37160 2542 37215 2597 dbs
+37160 792 37215 848 dbs
+37160 959 37215 1015 dbs
+37160 1126 37215 1181 dbs
+37382 2542 37437 2597 dbs
+37382 2375 37437 2431 dbs
+37382 2208 37437 2264 dbs
+37382 2042 37437 2097 dbs
+37382 1875 37437 1931 dbs
+37382 1709 37437 1764 dbs
+37382 792 37437 848 dbs
+37382 959 37437 1015 dbs
+37382 1126 37437 1181 dbs
+38395 2764 38451 2819 dbs
+38562 779 38617 834 dbs
+38784 1709 38839 1764 dbs
+38784 1875 38839 1931 dbs
+38784 2042 38839 2097 dbs
+38784 2208 38839 2264 dbs
+38784 2375 38839 2431 dbs
+38784 2542 38839 2597 dbs
+38784 792 38839 848 dbs
+38784 959 38839 1015 dbs
+38784 1126 38839 1181 dbs
+39006 2542 39062 2597 dbs
+39006 2375 39062 2431 dbs
+39006 2208 39062 2264 dbs
+39006 2042 39062 2097 dbs
+39006 1875 39062 1931 dbs
+39006 1709 39062 1764 dbs
+39006 792 39062 848 dbs
+39006 959 39062 1015 dbs
+39006 1126 39062 1181 dbs
+40019 2764 40075 2819 dbs
+40186 779 40242 834 dbs
+40408 1709 40464 1764 dbs
+40408 1875 40464 1931 dbs
+40408 2042 40464 2097 dbs
+40408 2208 40464 2264 dbs
+40408 2375 40464 2431 dbs
+40408 2542 40464 2597 dbs
+40408 792 40464 848 dbs
+40408 959 40464 1015 dbs
+40408 1126 40464 1181 dbs
+40630 2542 40686 2597 dbs
+40630 2375 40686 2431 dbs
+40630 2208 40686 2264 dbs
+40630 2042 40686 2097 dbs
+40630 1875 40686 1931 dbs
+40630 1709 40686 1764 dbs
+40630 792 40686 848 dbs
+40630 959 40686 1015 dbs
+40630 1126 40686 1181 dbs
+41644 2764 41699 2819 dbs
+41810 779 41866 834 dbs
+42033 1709 42088 1764 dbs
+42033 1875 42088 1931 dbs
+42033 2042 42088 2097 dbs
+42033 2208 42088 2264 dbs
+42033 2375 42088 2431 dbs
+42033 2542 42088 2597 dbs
+42033 792 42088 848 dbs
+42033 959 42088 1015 dbs
+42033 1126 42088 1181 dbs
+42255 2542 42310 2597 dbs
+42255 2375 42310 2431 dbs
+42255 2208 42310 2264 dbs
+42255 2042 42310 2097 dbs
+42255 1875 42310 1931 dbs
+42255 1709 42310 1764 dbs
+42255 792 42310 848 dbs
+42255 959 42310 1015 dbs
+42255 1126 42310 1181 dbs
+43268 2764 43324 2819 dbs
+43435 779 43490 834 dbs
+43657 1709 43712 1764 dbs
+43657 1875 43712 1931 dbs
+43657 2042 43712 2097 dbs
+43657 2208 43712 2264 dbs
+43657 2375 43712 2431 dbs
+43657 2542 43712 2597 dbs
+43657 792 43712 848 dbs
+43657 959 43712 1015 dbs
+43657 1126 43712 1181 dbs
+43879 2542 43935 2597 dbs
+43879 2375 43935 2431 dbs
+43879 2208 43935 2264 dbs
+43879 2042 43935 2097 dbs
+43879 1875 43935 1931 dbs
+43879 1709 43935 1764 dbs
+43879 792 43935 848 dbs
+43879 959 43935 1015 dbs
+43879 1126 43935 1181 dbs
+44892 2764 44948 2819 dbs
+45059 779 45115 834 dbs
+45281 1709 45337 1764 dbs
+45281 1875 45337 1931 dbs
+45281 2042 45337 2097 dbs
+45281 2208 45337 2264 dbs
+45281 2375 45337 2431 dbs
+45281 2542 45337 2597 dbs
+45281 792 45337 848 dbs
+45281 959 45337 1015 dbs
+45281 1126 45337 1181 dbs
+45503 2542 45559 2597 dbs
+45503 2375 45559 2431 dbs
+45503 2208 45559 2264 dbs
+45503 2042 45559 2097 dbs
+45503 1875 45559 1931 dbs
+45503 1709 45559 1764 dbs
+45503 792 45559 848 dbs
+45503 959 45559 1015 dbs
+45503 1126 45559 1181 dbs
+46517 2764 46572 2819 dbs
+46683 779 46739 834 dbs
+46906 1709 46961 1764 dbs
+46906 1875 46961 1931 dbs
+46906 2042 46961 2097 dbs
+46906 2208 46961 2264 dbs
+46906 2375 46961 2431 dbs
+46906 2542 46961 2597 dbs
+46906 792 46961 848 dbs
+46906 959 46961 1015 dbs
+46906 1126 46961 1181 dbs
+47128 2542 47183 2597 dbs
+47128 2375 47183 2431 dbs
+47128 2208 47183 2264 dbs
+47128 2042 47183 2097 dbs
+47128 1875 47183 1931 dbs
+47128 1709 47183 1764 dbs
+47128 792 47183 848 dbs
+47128 959 47183 1015 dbs
+47128 1126 47183 1181 dbs
+48141 2764 48197 2819 dbs
+48308 779 48363 834 dbs
+48530 1709 48585 1764 dbs
+48530 1875 48585 1931 dbs
+48530 2042 48585 2097 dbs
+48530 2208 48585 2264 dbs
+48530 2375 48585 2431 dbs
+48530 2542 48585 2597 dbs
+48530 792 48585 848 dbs
+48530 959 48585 1015 dbs
+48530 1126 48585 1181 dbs
+48752 2542 48808 2597 dbs
+48752 2375 48808 2431 dbs
+48752 2208 48808 2264 dbs
+48752 2042 48808 2097 dbs
+48752 1875 48808 1931 dbs
+48752 1709 48808 1764 dbs
+48752 792 48808 848 dbs
+48752 959 48808 1015 dbs
+48752 1126 48808 1181 dbs
+49765 2764 49821 2819 dbs
+49932 779 49988 834 dbs
+50154 1709 50210 1764 dbs
+50154 1875 50210 1931 dbs
+50154 2042 50210 2097 dbs
+50154 2208 50210 2264 dbs
+50154 2375 50210 2431 dbs
+50154 2542 50210 2597 dbs
+50154 792 50210 848 dbs
+50154 959 50210 1015 dbs
+50154 1126 50210 1181 dbs
+50376 2542 50432 2597 dbs
+50376 2375 50432 2431 dbs
+50376 2208 50432 2264 dbs
+50376 2042 50432 2097 dbs
+50376 1875 50432 1931 dbs
+50376 1709 50432 1764 dbs
+50376 792 50432 848 dbs
+50376 959 50432 1015 dbs
+50376 1126 50432 1181 dbs
+2 sfp
+200 200 600 slc
+1000 0 1000 sfc
+980 1417 1063 1500 dbf
+83 83 980 1417 dbu
+51362 1417 51445 1500 dbf
+83 83 51362 1417 dbu
+1000 1000 1000 slc
+1000 1000 1000 sfc
+0 3462 8 -1 dls
+52801 0 -1 348 dls
+0 0 52800 3460 clwin
+gfs
+%%Trailer
+%%EOF

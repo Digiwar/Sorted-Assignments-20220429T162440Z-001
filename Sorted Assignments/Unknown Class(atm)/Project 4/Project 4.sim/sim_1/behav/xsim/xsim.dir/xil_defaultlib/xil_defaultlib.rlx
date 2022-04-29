@@ -1,0 +1,12 @@
+0.6
+2017.4
+Dec 15 2017
+21:07:18
+C:/Users/daniel/Desktop/Project 4/Project 4.sim/sim_1/behav/xsim/glbl.v,1513215259,verilog,,,,glbl,,,,,,,,
+C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/ALU.v,1526084995,verilog,,C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/Micro.v,,ALU,,,,,,,,
+C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/Micro.v,1526083585,verilog,,C:/Users/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/dffb.v,,Micro,,,,,,,,
+C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/multi4.v,1526083958,verilog,,C:/Users/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/mux.v,,multi4,,,,,,,,
+C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/top.v,1526084713,verilog,,,,top_TB,,,,,,,,
+C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sources_1/new/fsm.v,1526084124,verilog,,C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/multi4.v,,fsm,,,,,,,,
+C:/Users/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/dffb.v,1526078104,verilog,,C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sources_1/new/fsm.v,,dffb,,,,,,,,
+C:/Users/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/mux.v,1526083958,verilog,,C:/Users/daniel/Desktop/Project 4/Project 4.srcs/sim_1/new/top.v,,mux,,,,,,,,

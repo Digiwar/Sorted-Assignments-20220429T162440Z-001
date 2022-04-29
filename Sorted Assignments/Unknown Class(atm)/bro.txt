@@ -1,0 +1,134 @@
+TITLE Potential Matrix  (brobrobro.asm)
+.model small
+.stack 100h
+.386
+.data
+del db ?
+seed dword 12345678h
+.code
+
+COMMENT !
+///////////////////////////////
+//Delay Procedure//
+//////////////////////////////
+!
+delay proc
+	mov esi,7FFFFFFh
+LoopDelay:
+	dec esi
+	mov del, 1
+	cmp esi, 0
+	jg LoopDelay
+	ret
+delay endp
+
+COMMENT !
+///////////////////////////////////
+//GetChar Procedure//
+//////////////////////////////////
+!
+getChar proc	
+	push bx
+	push cx
+	push ax
+	mov ax,160
+	mul cx
+	shl bx,1
+	add bx,ax
+	pop ax
+	mov ax,es:[bx]
+	pop cx
+	pop bx
+	ret
+getChar endp
+
+COMMENT !
+//////////////////////////////////
+//putChar Procedure//
+/////////////////////////////////
+!
+putChar proc
+	push bx
+	push cx
+	push ax
+	mov ax,160
+	mul cx
+	shl bx,1
+	add bx,ax
+	pop ax
+	mov es:[bx],ax
+	pop cx
+	pop bx
+	ret
+putChar endp
+
+COMMENT !
+////////////////////////////////////////////
+//_LongRandom Procedure//
+///////////////////////////////////////////
+!
+_LongRandom proc
+	mov eax, 343fdh
+	imul seed
+	add eax, 269ec3h
+	mov seed, eax
+	ror eax, 8
+	ret
+_LongRandom endp
+
+COMMENT !
+/////////////////////////////
+//Main Procedure//
+////////////////////////////
+!
+main Proc
+	mov ax,@data
+	mov ds,ax
+
+	mov ax, 0b800h
+	mov es, ax
+	
+
+	mov al, 'M'
+	mov ah, 02h
+	
+Loop1:
+	mov cx, 29
+	mov dx, cx
+Loop2:
+	push cx
+	dec cx
+	call getChar
+	mov dx, cx
+	pop cx
+	call putChar
+	mov cx, dx
+	mov bx,0
+	call delay
+	cmp dx, 0
+	jg Loop2
+Loop3:
+
+	;mov bx,0
+	push cx
+	mov cx, 0
+	call putChar
+	;mov ax,'f'
+	call getChar
+	;mov bx,20
+	;mov cx,20
+	call putChar
+	inc bx
+	pop cx
+	cmp bx, 79
+	jle Loop3
+	jmp Loop2
+
+	
+
+	mov ax,4C00h
+	int 21h
+
+main endp
+
+end main

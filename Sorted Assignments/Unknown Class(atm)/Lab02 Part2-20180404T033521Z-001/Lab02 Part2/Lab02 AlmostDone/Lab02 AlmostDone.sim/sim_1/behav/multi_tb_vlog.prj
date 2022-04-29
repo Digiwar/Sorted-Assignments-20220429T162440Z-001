@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../../adder.v"
+verilog xil_defaultlib  "../../../../dffa.v"
+verilog xil_defaultlib  "../../../../dffb.v"
+verilog xil_defaultlib  "../../../../Lab02 Part2.srcs/sim_1/new/mult.v"
+verilog xil_defaultlib  "../../../../mux.v"
+verilog xil_defaultlib  "../../../../Lab02 Part2.srcs/sources_1/new/shiftp.v"
+verilog xil_defaultlib  "../../../multi_tb.srcs/sources_1/new/multi_tb.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

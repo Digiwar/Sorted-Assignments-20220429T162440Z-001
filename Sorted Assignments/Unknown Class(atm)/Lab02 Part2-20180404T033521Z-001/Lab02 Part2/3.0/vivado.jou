@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri May 11 12:13:20 2018
+# Process ID: 3956
+# Current directory: C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2764 C:\Users\daniel\Desktop\Lab02 Part2-20180404T033521Z-001\Lab02 Part2\3.0\3.0.xpr
+# Log file: C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/vivado.log
+# Journal file: C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.xpr}
+update_compile_order -fileset sources_1

@@ -1,0 +1,48 @@
+﻿module mealy_fsm(reset, a, clk, y);
+input    reset, a, clk;
+output   y;
+reg      y;
+
+
+// Binary State Enconding
+parameter  s0 = 2'b00, s1 = 2'b01, s2 = 2'b10;
+
+
+reg [1:0]    cs, ns;
+
+
+// sequential state register block
+always@(posedge reset or posedge clk)
+begin
+    if( reset )  cs <= s0;
+    else         cs <= ns;  
+end
+
+
+// combinational next state block
+always@(cs or a)
+begin
+    case(cs)    
+    s0:   if(a) ns = s1;
+          else  ns = s2;
+    s1:   if(a) ns = s1;
+          else  ns = s2;
+    s2:   if(a) ns = s1;
+          else  ns = s2;
+    default:  ns = s0;
+    endcase
+end
+
+
+
+//combinational output block
+always@(cs or a)
+begin
+    case(cs)    
+    s0:   y = 0;
+    s1:   y = 1;
+    s2:   if(a) y= 1;
+          else  y= 0;
+    default:  y = 0;
+    endcase
+end

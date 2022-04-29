@@ -1,0 +1,13 @@
+0.6
+2017.4
+Dec 15 2017
+21:07:18
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/ALU.vhd,1525302990,vhdl,,,,alu,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/datapath.vhd,1525302990,vhdl,,,,datapath,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/ffr.vhd,1525302990,vhdl,,,,ffr,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/fsm.vhd,1525302990,vhdl,,,,fsm,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/mux2to1.vhd,1525302990,vhdl,,,,mux2to1,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/mux4to1.vhd,1525302990,vhdl,,,,mux4to1,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/tb/datapath_tb.vhd,1525302992,vhdl,,,,datapath_tb,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/tb/top_tb.vhd,1526087694,vhdl,,,,top_tb,,,,,,,,
+C:/Users/daniel/Desktop/Lab 4-20180511T232101Z-001/Lab 4/top.vhd,1525302990,vhdl,,,,top,,,,,,,,

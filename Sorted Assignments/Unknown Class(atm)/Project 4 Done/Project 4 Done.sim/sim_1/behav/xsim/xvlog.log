@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/new/Micro.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Micro
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/imports/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/dffb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dffb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sources_1/new/fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fsm
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/new/multi4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module multi4
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/imports/daniel/Downloads/Lab02 Part2-20180302T095112Z-001/Lab02 Part2/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Project 4 Done/Project 4 Done.srcs/sim_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_TB

@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/dffa.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dffa
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/dffb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dffb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/Lab02 Part2.srcs/sim_1/new/mult.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mult
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/imports/Lab02 Part2/Lab02 Part2.srcs/sources_1/new/shiftp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module shiftp
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/daniel/Desktop/Lab02 Part2-20180404T033521Z-001/Lab02 Part2/3.0/3.0.srcs/sources_1/new/multi_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module multi_tb

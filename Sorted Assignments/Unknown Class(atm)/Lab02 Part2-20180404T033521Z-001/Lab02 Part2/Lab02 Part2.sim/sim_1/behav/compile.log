@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/leexu/Desktop/Lab02 Part2/dffa.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dffa
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/leexu/Desktop/Lab02 Part2/dffa_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dffa_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/leexu/Desktop/Lab02 Part2/Lab02 Part2.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

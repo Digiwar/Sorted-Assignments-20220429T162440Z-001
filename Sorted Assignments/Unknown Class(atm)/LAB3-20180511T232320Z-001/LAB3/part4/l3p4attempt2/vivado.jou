@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Wed Apr 18 15:48:49 2018
+# Process ID: 1720
+# Current directory: C:/Users/alvareze/Desktop/l3p4attempt2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11020 C:\Users\alvareze\Desktop\l3p4attempt2\l3p4attempt2.xpr
+# Log file: C:/Users/alvareze/Desktop/l3p4attempt2/vivado.log
+# Journal file: C:/Users/alvareze/Desktop/l3p4attempt2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/alvareze/Desktop/l3p4attempt2/l3p4attempt2.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source fsm_tb.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+close_sim
+launch_simulation
+source fsm_tb.tcl

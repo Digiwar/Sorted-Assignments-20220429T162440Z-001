@@ -1,0 +1,18 @@
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+                   0 adder output = x xxxxxxxx, ph = 0000
+                  10 adder output = 0 00000000, ph = 0000
+                  30 adder output = 0 00000000, ph = 1011
+                  50 adder output = 1 10110000, ph = 1011
+                  70 adder output = 1 01011000, ph = 1011
+                  90 adder output = 0 01011000, ph = 0000
+                 130 adder output = 0 00101100, ph = 0000
+                 150 adder output = 0 00101100, ph = 1011
+                 170 adder output = 1 11011100, ph = 1011
+                 190 adder output = 1 01101110, ph = 1011
+                 230 adder output = 0 00011110, ph = 1011
+                 250 adder output = 0 00001111, ph = 1011
+                 290 adder output = 1 10111111, ph = 1011
+                 310 adder output = 1 01011111, ph = 1011
+                 350 adder output = 0 00001111, ph = 1011
+                 370 adder output = 0 00000111, ph = 1011

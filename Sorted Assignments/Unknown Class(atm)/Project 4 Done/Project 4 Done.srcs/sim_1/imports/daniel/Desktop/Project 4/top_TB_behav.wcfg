@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_TB" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="365000001fs"></ZoomEndTime>
+      <Cursor1Time time="80000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="59"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/top_TB/M0" type="logic">
+      <obj_property name="ElementShortName">M0</obj_property>
+      <obj_property name="ObjectShortName">M0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/M1" type="logic">
+      <obj_property name="ElementShortName">M1</obj_property>
+      <obj_property name="ObjectShortName">M1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/M2" type="logic">
+      <obj_property name="ElementShortName">M2</obj_property>
+      <obj_property name="ObjectShortName">M2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/Cin" type="logic">
+      <obj_property name="ElementShortName">Cin</obj_property>
+      <obj_property name="ObjectShortName">Cin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/dout" type="logic">
+      <obj_property name="ElementShortName">dout</obj_property>
+      <obj_property name="ObjectShortName">dout</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/CLR" type="logic">
+      <obj_property name="ElementShortName">CLR</obj_property>
+      <obj_property name="ObjectShortName">CLR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/W" type="array">
+      <obj_property name="ElementShortName">W[2:0]</obj_property>
+      <obj_property name="ObjectShortName">W[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/S" type="array">
+      <obj_property name="ElementShortName">S[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/CE" type="array">
+      <obj_property name="ElementShortName">CE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">CE[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_TB/SEL" type="array">
+      <obj_property name="ElementShortName">SEL[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL[1:0]</obj_property>
+   </wvobject>
+</wave_config>
